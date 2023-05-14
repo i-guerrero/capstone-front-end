@@ -1,22 +1,31 @@
 import "./Home.css";
-import hands from "./hands.jpeg";
+import welcomeF from "./welcomeF.png";
 
 export default function Home() {
   return (
     <div className="home">
-      <h1>Welcome to Dev-Impact</h1>
-      <img
-        src={hands}
-        alt="hands"
+      <div
         style={{
-          display: "block",
-          width: "50%",
-          height: "auto",
-          marginTop: "20px",
-          maxWidth: "400px",
-          borderRadius: "10%",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          height: "100%",
         }}
-      />
+      >
+        <img
+          src={welcomeF}
+          alt="welcomeF"
+          style={{
+            display: "block",
+            width: "100%",
+            height: "auto",
+            borderRadius: "0%",
+            maxHeight: "calc(100vh - 4rem)",
+            marginTop: "4rem",
+          }}
+        />
+      </div>
     </div>
   );
 }
