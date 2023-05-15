@@ -13,29 +13,16 @@ export default function NavBar() {
   return (
     <div>
       <header className="navbar">
-        <article>
-          <h1>
-            <Link to="/">
-              <img
-                src={logo}
-                alt="logo"
-                style={{
-                  display: "block",
-                  width: "60%",
-                  height: "auto",
-                  marginTop: "0px",
-                  maxWidth: "200px",
-                  borderRadius: "10%",
-                }}
-              />
-            </Link>
-          </h1>
+        <article className="navbar-logo">
+          <Link to="/">
+            <img src={logo} alt="logo" />
+          </Link>
         </article>
 
         <nav>
           <ul>
             <li>
-              <Link to="/" className="button" onClick={handleToggleClick}>
+              <Link className="toggle-button" onClick={handleToggleClick}>
                 <span>For developers</span>
               </Link>
               {toggleOpen && (

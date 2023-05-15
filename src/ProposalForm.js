@@ -1,4 +1,3 @@
-
 import "./ProposalForm.css";
 
 // import { createNewProposalForm } from "./fetch";
@@ -27,6 +26,8 @@ export default function New() {
   function handleSubmit(event) {
     event.preventDefault();
 
+    console.log(newProposalForm);
+
     // const acumulatedReview = {
     //   ...newProposalForm,
     //   newProposalForm,
@@ -38,7 +39,7 @@ export default function New() {
   }
 
   return (
-    <div>
+    <div className="proposal-form">
       <header className="upsert-form-header">
         <h1>New Form</h1>
       </header>
@@ -57,7 +58,8 @@ export default function New() {
           <label htmlFor="description">
             Description of web application needed:{" "}
           </label>
-          <input
+          <textarea
+            rows={5}
             type="text"
             id="description"
             value={newProposalForm.description}
@@ -66,8 +68,11 @@ export default function New() {
         </div>
 
         <div className="form-field">
-          <label htmlFor="impact">Potential Project Impact in the community:</label>
-          <input
+          <label htmlFor="impact">
+            Potential Project Impact in the community:
+          </label>
+          <textarea
+            rows={5}
             type="text"
             id="impact"
             value={newProposalForm.impact}

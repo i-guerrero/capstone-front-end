@@ -1,21 +1,20 @@
+.proposal-form {
+    height: calc(100vh - 92px);
+    background: linear-gradient(90deg, #cdffd8, #94b9ff);
+}
 
 .form-container {
     padding: 20px;
 }
 
-div {
-    margin-bottom: 30px;
-    margin-top: 150px;
-}
-
 .upsert-form-header {
     text-align: center;
-    margin-top: 20px;
     color: #1b263b;
+    padding-top: 24px;
 }
 
 .upsert-form-header h1 {
-    margin-bottom: 0;
+    margin-block: 0;
 }
 
 .upsert-form {
@@ -23,8 +22,9 @@ div {
     flex-direction: column;
     gap: 12px;
     padding: 24px;
-    margin: auto;
-    width: 17.5%;
+    margin-inline: auto;
+    min-width: 160px;
+    width: 30%;
 }
 
 .form-field {
@@ -39,7 +39,7 @@ div {
 }
 
 .form-field input,
-select {
+select, textarea {
     padding: 8px;
     font-size: 18px;
     border-radius: 4px;
