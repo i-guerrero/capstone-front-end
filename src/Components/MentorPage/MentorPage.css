@@ -1,0 +1,12 @@
+.data-table-container {
+  width: 80%
+}
+
+.rdt_TableHeadRow {
+  background: #292e74 !important;
+  color: white;
+}
+
+.rdt_TableRow {
+  padding-block: 12px;
+}
