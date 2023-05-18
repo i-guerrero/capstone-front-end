@@ -11,6 +11,8 @@ import ForNonProfits from "./Components/ForNonProfits/ForNonProfits";
 import MenteePage from "./Components/MenteePage/MenteePage";
 import MentorPage from "./Components/MentorPage/MentorPage";
 import ProposalForm from "./Components/ProposalForm/ProposalForm";
+import MentorForm from "./Components/MentorForm/MentorForm";
+import MentorAccepted from "./Components/MentorAccepted/MentorAccepted";
 
 function App() {
   return (
@@ -23,8 +25,10 @@ function App() {
           <Route path="/our-impact" element={<OurImpact />} />
           <Route path="/for-non-profits" element={<ForNonProfits />} />
           <Route path="/proposals-new" element={<ProposalForm />} />
+          <Route path="/menthors-new" element={<MentorForm />} />
           <Route path="/non-experts" element={<MenteePage />} />
           <Route path="/experts" element={<MentorPage />} />
+          <Route path="/mentor-accepted" element={<MentorAccepted />} />
           {/* <Route path="/proposals" element={<ProposalList />} />
           <Route path="/proposals/:id" element={<ShowOneProposal />} />
           <Route path="/proposals/:id/edit" element={<EditProposal />} /> */}

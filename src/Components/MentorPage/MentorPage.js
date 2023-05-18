@@ -1,9 +1,11 @@
 import DataTable from "react-data-table-component";
 import { mockProposalsList } from "../../mocks/proposals";
+import { useNavigate } from "react-router-dom";
 
 import "./MentorPage.css";
 
 export default function MentorPage() {
+  const navigate = useNavigate();
   const columns = [
     {
       name: "Non-profit Organization",
@@ -33,12 +35,18 @@ export default function MentorPage() {
     },
     {
       name: "Status",
-      cell: () => <button onClick={() => console.log("Joined")}>Join</button>,
+      cell: () => <button onClick={() => {
+        navigate("/mentor-accepted");
+        console.log("Joined");
+      }
+}>Join</button>,
       grow: 1,
       center: true
     },
   ];
-
+      // <Link to="/proposals-new" className="button-link">
+      //   Proposal Form
+      // </Link>;
   return (
     <div className="home">
       <article>
