@@ -66,12 +66,13 @@
 .navbar-logo a {
     display: block !important;
     width: 100% !important;
+    
 }
 
 .navbar-logo img {
     display: block;
-    width: 60%;
-    height: auto;
+    width: 120px;
+    height: 120px;
     margin-top: 0px;
     max-width: 200px;
     border-radius: 10%;

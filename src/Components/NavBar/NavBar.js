@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./NavBar.css";
-import logo from "./logoAppDev.png";
+import logo from "./DevImpactLogo.png";
 
 export default function NavBar() {
   const [toggleOpen, setToggleOpen] = useState(false);
@@ -17,7 +17,7 @@ export default function NavBar() {
     <div>
       <header className="navbar">
         <article className="navbar-logo">
-          <Link onclick={handleButton} to="/">
+          <Link onClick={handleButton} to="/">
             <img src={logo} alt="logo" />
           </Link>
         </article>
@@ -31,30 +31,30 @@ export default function NavBar() {
               {toggleOpen && (
                 <ul className="submenu">
                   <li>
-                    <Link onclick={handleButton} to="/experts">
-                      Experts
+                    <Link onClick={handleButton} to="/experts">
+                    Mentors
                     </Link>
                   </li>
                   <li>
-                    <Link onclick={handleButton} to="/non-experts">
-                      Non-experts
+                    <Link onClick={handleButton} to="/non-experts">
+                      Mentees
                     </Link>
                   </li>
                 </ul>
               )}
             </li>
             <li>
-              <Link onclick={handleButton} to="/for-non-profits">
+              <Link onClick={handleButton} to="/for-non-profits">
                 For non-profits
               </Link>
             </li>
             <li>
-              <Link onclick={handleButton} to="/how-it-works">
+              <Link onClick={handleButton} to="/how-it-works">
                 How it works
               </Link>
             </li>
             <li>
-              <Link onclick={handleButton} to="/our-impact">
+              <Link onClick={handleButton} to="/our-impact">
                 Our Impact
               </Link>
             </li>
