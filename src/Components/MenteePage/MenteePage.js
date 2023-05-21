@@ -1,8 +1,13 @@
 import DataTable from "react-data-table-component";
+import { useEffect, useState } from "react";
 import { mockProjectList } from "../../mocks/projects";
 import { useNavigate } from "react-router-dom";
 
 import "./MenteePage.css";
+
+import { getAllProjects } from "../../API/Project";
+
+
 
   // {
   //   id: 4,
@@ -17,6 +22,22 @@ import "./MenteePage.css";
 
 export default function MenteePage() {
   const navigate = useNavigate();
+
+  
+  useEffect(() => {
+    console.log(process.env.REACT_APP_BASE_URL);
+      fetch(`${process.env.REACT_APP_BASE_URL}/projects`).then((response) =>
+        response.json()
+      );
+      // .then((Allproposals) => Allproposals)
+      // .then((proposalsList) => {
+      //   setProposals(proposalsList);
+      // });
+      // getAllProposals()
+      // console.log(proposalsList);
+      // });
+    }, []);
+  
   const columns = [
     {
       name: "Non-profit Organization",
