@@ -2,10 +2,10 @@ import "./ProposalForm.css";
 
 // import { createNewProposalForm } from "./fetch";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 export default function New() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [newProposalForm, setNewProposalForm] = useState({
     id: "",
     title: "",
@@ -41,8 +41,14 @@ export default function New() {
   return (
     <div className="proposal-form">
       <header className="upsert-form-header">
-        <h1>New Form</h1>
+        <div className="form-text">
+          {" "}
+          <h1>Welcome NonProfits!</h1>
+          <h3>Get Started</h3>
+          <h4>Please fill out our 5-minute project proposal form...</h4>
+        </div>
       </header>
+      <div className="form-container">
       <form className="upsert-form" onSubmit={handleSubmit}>
         <div className="form-field">
           <label htmlFor="title">Project Title:</label>
@@ -59,6 +65,7 @@ export default function New() {
             Description of web application needed:{" "}
           </label>
           <textarea
+            className="text-area"
             rows={5}
             type="text"
             id="description"
@@ -72,6 +79,7 @@ export default function New() {
             Potential Project Impact in the community:
           </label>
           <textarea
+            className="text-area"
             rows={5}
             type="text"
             id="impact"
@@ -79,9 +87,14 @@ export default function New() {
             onChange={handleInputChange}
           />
         </div>
-        <br />
-        <input className="submit-button" type="submit" />
+        <input
+          className="submit-button"
+          type="submit"
+          value="Get Help Now!"
+        />
       </form>
+      </div>
     </div>
+    // </div>
   );
 }

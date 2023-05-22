@@ -3,8 +3,7 @@
   overflow: scroll;
   background: scroll;
   background-color: rgba(119, 187, 223, 0.498);
-  text-align: center;
-  padding-top: 5%;
+  /* padding-top: 5%; */
 }
 
 .home h4 {
@@ -15,31 +14,24 @@
   /* Need Css here for text align */
 }
 .buttons-container {
-    padding-top: 10%;
-    display: flex;
-    justify-content:space-evenly;
+  padding-top: 10%;
+  display: flex;
+  justify-content: space-evenly;
 }
 
-
-.home-button:hover {
-  cursor: pointer;
-animation-name: slide-up;
-animation-duration: .5s;
-}
-
-
-.title {
+#title {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-size: large;
+
 }
 
 .home img {
-  display: block;
+  /* display: block;
   width: 85%;
   height: 100%;
   max-width: 85%;
   max-height: 100%;
-  object-fit: cover;
+  object-fit: cover; */
 }
 
 .grid-container {
@@ -51,8 +43,8 @@ animation-duration: .5s;
   /* height:fit-content; */
 }
 
-.grid-item {
-  /* text-align: center; */
-  border-color: black;
-  /* Styling for grid items */
+.grid-item img {
+}
+.grid-item h1,
+.grid-item h4 {
 }

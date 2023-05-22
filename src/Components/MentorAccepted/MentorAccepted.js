@@ -11,7 +11,7 @@ export default function MentorAccepted() {
         the form below to publish the technical project and join new developers
         in this adventure.
       </article>
-      <Link to="/menthors-new" className="button-link">
+      <Link to="/mentors-new" className="button-link">
         Project Form
       </Link>
     </div>

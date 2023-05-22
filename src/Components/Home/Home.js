@@ -7,12 +7,12 @@ export default function Home() {
     <div className="home">
       <div className="grid-container">
         <div className="grid-item">
-          <span className="title">DEV IMPACT</span>
-          <h4>"The greatest impact we have is when we come together."</h4>
-          <p>
+          <span id="title">DEV IMPACT</span>
+          <h1>"The greatest impact we have is when we come together."</h1>
+          <h4>
             We are a community of developers of all stages and nonprofits
             collaborating together to create web applications with purpose.
-          </p>
+          </h4>
         </div>
         <div className="grid-item">
           <img src={devteam} alt="devteam" />

@@ -1,5 +1,10 @@
 .data-table-container {
+  margin: auto;
   width: 80%
+}
+
+.sc-ePzlA-D{
+ border: 2px solid #292e74;
 }
 
 .rdt_TableHeadRow {
