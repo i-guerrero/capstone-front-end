@@ -1,8 +1,11 @@
 import "./Home.css";
 // import welcomeF from "./welcomeF.png";
 import devteam from "./undraw_engineering_team_a7n2.svg";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
+  const navigate = useNavigate();
+
   return (
     <div className="home">
       <div className="grid-container">
@@ -19,25 +22,43 @@ export default function Home() {
         </div>
       </div>
       <div className="buttons-container">
-        <div className="home-button">
+        <div
+          onClick={() => {
+            navigate("/mentor-accepted");
+            console.log("Joined");
+          }}
+          className="home-button"
+        >
           Join Mentors{" "}
           <span
             class="fa-solid fa-up-right-from-square fa-2xs"
-            style={{color: '#292e74;'}}
+            style={{ color: "#292e74;" }}
           ></span>
         </div>
-        <div className="home-button">
+        <div
+          onClick={() => {
+            navigate("/mentor-accepted");
+            console.log("Joined");
+          }}
+          className="home-button"
+        >
           Join Mentees{" "}
           <span
             className="fa-solid fa-up-right-from-square  fa-2xs"
-            style={{color: '#292e74;'}}
+            style={{ color: "#292e74;" }}
           ></span>
         </div>
-        <div className="home-button">
+        <div
+          onClick={() => {
+            navigate("/proposals-new");
+            console.log("Joined nonprofits");
+          }}
+          className="home-button"
+        >
           Join Nonprofits{" "}
           <span
             class="fa-solid fa-up-right-from-square  fa-2xs"
-            style={{color: '#292e74;'}}
+            style={{ color: "#292e74;" }}
           ></span>
         </div>
       </div>
