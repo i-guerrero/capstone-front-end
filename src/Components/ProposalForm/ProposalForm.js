@@ -12,7 +12,6 @@ export default function New() {
     title: "",
     description: "",
     impact: "",
-    non_profit_id: "",
   });
 
   function handleInputChange(event) {

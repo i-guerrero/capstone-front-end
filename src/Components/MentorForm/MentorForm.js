@@ -1,12 +1,14 @@
 import "./MentorForm.css";
 
-// import { createNewProposalForm } from "./fetch";
+// import { createNewProjectForm } from "./fetch";
+
 import { useState } from "react";
+import { createNewProjects } from "../../API/Project";
 import { useNavigate } from "react-router-dom";
 
 export default function New() {
   const navigate = useNavigate();
-  const [newProposalForm, setNewProposalForm] = useState({
+  const [newProjectForm, setNewProjectForm] = useState({
     id: "",
     technologies: "",
     num_developers: "",
@@ -16,8 +18,8 @@ export default function New() {
   });
 
   function handleInputChange(event) {
-    setNewProposalForm({
-      ...newProposalForm,
+    setNewProjectForm({
+      ...newProjectForm,
       [event.target.id]: event.target.value,
     });
   }
@@ -25,20 +27,20 @@ export default function New() {
   function handleSubmit(event) {
     event.preventDefault();
 
-    console.log(newProposalForm);
+    console.log(newProjectForm);
 
     // const acumulatedReview = {
-    //   ...newProposalForm,
-    //   newProposalForm,
+    //   ...newProjectForm,
+    //   newProjectForm,
     // };
 
-    // createNewProposalForm(newProposalForm).then((newProposalFormEnd) => {
-    //   navigate("/reviews");
-    // });
+    createNewProjects(newProjectForm).then((newProjectFormEnd) => {
+      navigate("/non-experts");
+    });
   }
 
   return (
-    <div className="proposal-form">
+    <div className="project-form">
       <header className="upsert-form-header">
         <h1>New Form</h1>
       </header>
@@ -48,7 +50,7 @@ export default function New() {
           <input
             type="text"
             id="technologies"
-            value={newProposalForm.technologies}
+            value={newProjectForm.technologies}
             onChange={handleInputChange}
           />
         </div>
@@ -57,20 +59,19 @@ export default function New() {
           <label htmlFor="description">Numbers of developers needed: </label>
           <textarea
             rows={1}
-            type="text"
-            id="description"
-            value={newProposalForm.description}
+            type="number"
+            id="num_developers"
+            value={newProjectForm.num_developers}
             onChange={handleInputChange}
           />
         </div>
 
         <div className="form-field">
           <label htmlFor="date_to_complete">Date to complete:</label>
-          <textarea
-            rows={1}
-            type="text"
+          <input
+            type="date"
             id="date_to_complete"
-            value={newProposalForm.date_to_complete}
+            value={newProjectForm.date_to_complete}
             onChange={handleInputChange}
           />
         </div>
@@ -80,7 +81,7 @@ export default function New() {
             rows={1}
             type="text"
             id="trello"
-            value={newProposalForm.trello}
+            value={newProjectForm.trello}
             onChange={handleInputChange}
           />
         </div>
@@ -90,7 +91,7 @@ export default function New() {
             rows={1}
             type="text"
             id="status"
-            value={newProposalForm.status}
+            value={newProjectForm.status}
             onChange={handleInputChange}
           />
         </div> */}

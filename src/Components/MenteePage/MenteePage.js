@@ -1,41 +1,20 @@
 import DataTable from "react-data-table-component";
 import { useEffect, useState } from "react";
-import { mockProjectList } from "../../mocks/projects";
 import { useNavigate } from "react-router-dom";
+import { getAllProjects } from "../../API/Project";
 
 import "./MenteePage.css";
 
-import { getAllProjects } from "../../API/Project";
 
 
-
-  // {
-  //   id: 4,
-  //   non_profit_organization: "BLM ORG",
-  //   description:
-  //     "This is my foundation description, This is my foundation description, This is my foundation description",
-  //   technologies: "Js",
-  //   num_developers: 2,
-  //   date_to_complete: "this is a date in data",
-  //   keywords: "js",
-  // },
 
 export default function MenteePage() {
   const navigate = useNavigate();
-
-  
-  useEffect(() => {
-    console.log(process.env.REACT_APP_BASE_URL);
-      fetch(`${process.env.REACT_APP_BASE_URL}/projects`).then((response) =>
-        response.json()
-      );
-      // .then((Allproposals) => Allproposals)
-      // .then((proposalsList) => {
-      //   setProposals(proposalsList);
-      // });
-      // getAllProposals()
-      // console.log(proposalsList);
-      // });
+  const [projects, setProjects] = useState([]);
+    useEffect(() => {
+      getAllProjects().then((projectsList) => {
+        setProjects(projectsList);
+      });
     }, []);
   
   const columns = [
@@ -88,7 +67,7 @@ export default function MenteePage() {
       center: true,
     },
   ];
-  // <Link to="/proposals-new" className="button-link">
+  // <Link to="/projects-new" className="button-link">
   //   Proposal Form
   // </Link>;
   return (
@@ -98,7 +77,7 @@ export default function MenteePage() {
       </article>
       <br />
       <div className="data-table-container">
-        <DataTable columns={columns} data={mockProjectList} />
+        <DataTable columns={columns} data={projects} />
       </div>
     </div>
   );
