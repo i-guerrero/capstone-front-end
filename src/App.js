@@ -25,7 +25,7 @@ function App() {
           <Route path="/our-impact" element={<OurImpact />} />
           <Route path="/for-non-profits" element={<ForNonProfits />} />
           <Route path="/proposals-new" element={<ProposalForm />} />
-          <Route path="/menthors-new" element={<MentorForm />} />
+          <Route path="/mentors-new" element={<MentorForm />} />
           <Route path="/non-experts" element={<MenteePage />} />
           <Route path="/experts" element={<MentorPage />} />
           <Route path="/mentor-accepted" element={<MentorAccepted />} />

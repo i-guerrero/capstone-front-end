@@ -16,11 +16,11 @@ export default function NavBar() {
   return (
     <div>
       <header className="navbar">
-        <article className="navbar-logo">
+        <div className="navbar-logo">
           <Link onClick={handleButton} to="/">
             <img src={logo} alt="logo" />
           </Link>
-        </article>
+        </div>
 
         <nav>
           <ul>
