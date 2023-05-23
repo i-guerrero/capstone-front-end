@@ -45,7 +45,7 @@ export default function New() {
       <header className="upsert-form-header">
         <h1>Welcome Mentors!</h1>
         <h4>Fill out our 5-minute project proposal form...</h4>
-      </header> 
+      </header>
       <div className="grid-container">
         <div className="form-container grid-item">
           <form className="upsert-form" onSubmit={handleSubmit}>
@@ -94,59 +94,6 @@ export default function New() {
                 onChange={handleInputChange}
               />
             </div>
-            {/* <div className="form-field">
-
-      <form className="upsert-form" onSubmit={handleSubmit}>
-        <div className="form-field">
-          <label htmlFor="technologies">Project technologies to use:</label>
-          <input
-            type="text"
-            id="technologies"
-            value={newProjectForm.technologies}
-            onChange={handleInputChange}
-          />
-        </div>
-
-        <div className="form-field">
-          <label htmlFor="description">Numbers of developers needed: </label>
-          <textarea
-            rows={1}
-            type="number"
-            id="num_developers"
-            value={newProjectForm.num_developers}
-            onChange={handleInputChange}
-          />
-        </div>
-
-        <div className="form-field">
-          <label htmlFor="date_to_complete">Date to complete:</label>
-          <input
-            type="date"
-            id="date_to_complete"
-            value={newProjectForm.date_to_complete}
-            onChange={handleInputChange}
-          />
-        </div>
-        <div className="form-field">
-          <label htmlFor="trello">Trello link:</label>
-          <textarea
-            rows={1}
-            type="text"
-            id="trello"
-            value={newProjectForm.trello}
-            onChange={handleInputChange}
-          />
-        </div> 
-        {/* <div className="form-field">
-          <label htmlFor="status">status:</label>
-          <textarea
-            rows={1}
-            type="text"
-            id="status"
-            value={newProjectForm.status}
-            onChange={handleInputChange}
-          />
-        </div> */}
             <input className="submit-button" type="submit" />
           </form>
         </div>
