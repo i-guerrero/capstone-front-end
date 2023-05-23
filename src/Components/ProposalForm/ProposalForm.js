@@ -4,7 +4,7 @@ import { useState } from "react";
 
 // import { useNavigate } from "react-router-dom";
 
-export default function New() {
+
   // const navigate = useNavigate();
 
 import { createNewProposals } from "../../API/Proposal";

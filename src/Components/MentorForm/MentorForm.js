@@ -54,7 +54,7 @@ export default function New() {
               <input
                 type="text"
                 id="technologies"
-                value={newProposalForm.technologies}
+                value={newProjectForm.technologies}
                 onChange={handleInputChange}
               />
             </div>
@@ -68,7 +68,7 @@ export default function New() {
                 rows={1}
                 type="text"
                 id="description"
-                value={newProposalForm.description}
+                value={newProjectForm.description}
                 onChange={handleInputChange}
               />
             </div>
@@ -79,7 +79,7 @@ export default function New() {
                 className="text-area"
                 type="date"
                 id="date_to_complete"
-                value={newProposalForm.date_to_complete}
+                value={newProjectForm.date_to_complete}
                 onChange={handleInputChange}
               />
             </div>
@@ -90,7 +90,7 @@ export default function New() {
                 rows={1}
                 type="text"
                 id="trello"
-                value={newProposalForm.trello}
+                value={newProjectForm.trello}
                 onChange={handleInputChange}
               />
             </div>

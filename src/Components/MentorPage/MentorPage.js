@@ -8,13 +8,11 @@ export default function MentorPage() {
   const navigate = useNavigate();
   const [proposals, setProposals] = useState([]);
 
-
   useEffect(() => {
     getAllProposals().then((proposalsList) => {
       setProposals(proposalsList);
     });
   }, []);
-  
 
   const columns = [
     {
@@ -45,15 +43,6 @@ export default function MentorPage() {
     },
     {
       name: "Status",
-
-      cell: () => <button className="button-link" onClick={() => {
-        navigate("/mentor-accepted");
-        console.log("Joined");
-      }
-}>  Join Now <span
-className="fa-solid fa-up-right-from-square  fa-2xs"
-style={{color: '#292e74;'}}
-></span></button>,
       cell: () => (
         <button
           onClick={() => {
