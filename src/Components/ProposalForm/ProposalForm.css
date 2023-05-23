@@ -88,13 +88,6 @@ textarea {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px;
-    /* padding-bottom: 5%;
-      padding-top: 10%; */
-    /* height:fit-content; */
+  
   }
   
-  .grid-item {
-    /* text-align: center; */
-    border-color: black;
-    /* Styling for grid items */
-  }
