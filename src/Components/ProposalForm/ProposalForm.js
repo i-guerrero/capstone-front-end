@@ -1,19 +1,23 @@
 import "./ProposalForm.css";
 
-// import { createNewProposalForm } from "./fetch";
 import { useState } from "react";
+
 // import { useNavigate } from "react-router-dom";
 
 export default function New() {
   // const navigate = useNavigate();
+
+import { createNewProposals } from "../../API/Proposal";
+import { useNavigate } from "react-router-dom";
+
+export default function New() {
+  const navigate = useNavigate();
+
   const [newProposalForm, setNewProposalForm] = useState({
-    id: "",
+
     title: "",
     description: "",
     impact: "",
-    status: "",
-    non_profit_id: "",
-    mentor_id: "",
   });
 
   function handleInputChange(event) {
@@ -28,14 +32,11 @@ export default function New() {
 
     console.log(newProposalForm);
 
-    // const acumulatedReview = {
-    //   ...newProposalForm,
-    //   newProposalForm,
-    // };
 
-    // createNewProposalForm(newProposalForm).then((newProposalFormEnd) => {
-    //   navigate("/reviews");
-    // });
+    createNewProposals(newProposalForm).then((newProposalFormEnd) => {
+      navigate("/experts");
+      console.log(newProposalFormEnd);
+    });
   }
 
   return (

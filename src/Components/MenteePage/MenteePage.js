@@ -1,22 +1,22 @@
 import DataTable from "react-data-table-component";
-import { mockProjectList } from "../../mocks/projects";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { getAllProjects } from "../../API/Project";
 
 import "./MenteePage.css";
 
-  // {
-  //   id: 4,
-  //   non_profit_organization: "BLM ORG",
-  //   description:
-  //     "This is my foundation description, This is my foundation description, This is my foundation description",
-  //   technologies: "Js",
-  //   num_developers: 2,
-  //   date_to_complete: "this is a date in data",
-  //   keywords: "js",
-  // },
+
+
 
 export default function MenteePage() {
   const navigate = useNavigate();
+  const [projects, setProjects] = useState([]);
+    useEffect(() => {
+      getAllProjects().then((projectsList) => {
+        setProjects(projectsList);
+      });
+    }, []);
+  
   const columns = [
     {
       name: "Non-profit Organization",
@@ -70,7 +70,7 @@ export default function MenteePage() {
       center: true,
     },
   ];
-  // <Link to="/proposals-new" className="button-link">
+  // <Link to="/projects-new" className="button-link">
   //   Proposal Form
   // </Link>;
   return (
@@ -80,7 +80,7 @@ export default function MenteePage() {
       </article>
       <br />
       <div className="data-table-container">
-        <DataTable columns={columns} data={mockProjectList} />
+        <DataTable columns={columns} data={projects} />
       </div>
     </div>
   );
