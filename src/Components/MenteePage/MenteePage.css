@@ -1,6 +1,7 @@
 .data-table-container {
 margin: auto;
-    width: 80%
+    width: 80%;
+    padding-top: 20%;
 }
 
 .rdt_TableHeadRow {
@@ -14,4 +15,8 @@ margin: auto;
 
 .sc-ePzlA-D{
     border: 2px solid #292e74;
-   }
+}
+
+.article {
+    padding-top: 40%;
+}
