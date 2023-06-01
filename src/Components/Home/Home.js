@@ -31,8 +31,8 @@ export default function Home() {
         >
           Join Mentors{" "}
           <span
-            class="fa-solid fa-up-right-from-square fa-2xs"
-            style={{ color: "#292e74;" }}
+            className="fa-solid fa-up-right-from-square fa-2xs"
+            style={{ color: "#292e74" }}
           ></span>
         </div>
         <div
@@ -45,7 +45,7 @@ export default function Home() {
           Join Mentees{" "}
           <span
             className="fa-solid fa-up-right-from-square  fa-2xs"
-            style={{ color: "#292e74;" }}
+            style={{ color: "#292e74" }}
           ></span>
         </div>
         <div
@@ -55,10 +55,10 @@ export default function Home() {
           }}
           className="home-button"
         >
-          Join Nonprofits{" "}
+          Join Non-profits{" "}
           <span
-            class="fa-solid fa-up-right-from-square  fa-2xs"
-            style={{ color: "#292e74;" }}
+            className="fa-solid fa-up-right-from-square  fa-2xs"
+            style={{ color: "#292e74" }}
           ></span>
         </div>
       </div>

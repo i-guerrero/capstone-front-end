@@ -15,3 +15,24 @@ margin: auto;
 .sc-ePzlA-D{
     border: 2px solid #292e74;
    }
+
+   .join-btn {
+    display: inline-block;
+    padding: 10px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    background-color: #292e74;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s ease-in-out;
+    /* margin-top: 60px; */
+}
+
+.join-btn:hover {
+    transform: scale(1.15);
+    background-color: #292e74;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
