@@ -33,7 +33,7 @@
   color: white;
   background-color: #4d52a5;
   border: none;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); */
   transition: all 0.2s ease-in-out;
   margin-top: 60px;
 }
@@ -41,6 +41,7 @@
   background-color: #292e74;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
   cursor: pointer;
+  transform: scale(1.10);
 }
 
 .grid-container {

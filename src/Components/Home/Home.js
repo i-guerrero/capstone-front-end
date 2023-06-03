@@ -1,10 +1,13 @@
 import "./Home.css";
+import { useState } from "react";
 // import welcomeF from "./welcomeF.png";
 import devteam from "./undraw_engineering_team_a7n2.svg";
 import { useNavigate } from "react-router-dom";
+import { Auth } from "../Auth";
 
 export default function Home() {
   const navigate = useNavigate();
+  const [displayName, setDisplayName] = useState("");
 
   return (
     <div className="home">
@@ -31,8 +34,8 @@ export default function Home() {
         >
           Join Mentors{" "}
           <span
-            class="fa-solid fa-up-right-from-square fa-2xs"
-            style={{ color: "#292e74;" }}
+            className="fa-solid fa-up-right-from-square fa-2xs"
+            style={{ color: "#292e74" }}
           ></span>
         </div>
         <div
@@ -45,7 +48,7 @@ export default function Home() {
           Join Mentees{" "}
           <span
             className="fa-solid fa-up-right-from-square  fa-2xs"
-            style={{ color: "#292e74;" }}
+            style={{ color: "#292e74" }}
           ></span>
         </div>
         <div
@@ -55,13 +58,20 @@ export default function Home() {
           }}
           className="home-button"
         >
-          Join Nonprofits{" "}
+          Join Non-profits{" "}
           <span
-            class="fa-solid fa-up-right-from-square  fa-2xs"
-            style={{ color: "#292e74;" }}
+            className="fa-solid fa-up-right-from-square  fa-2xs"
+            style={{ color: "#292e74" }}
           ></span>
         </div>
       </div>
+      {displayName ? (
+        <span>ghello</span>
+      ) : (
+        <div> <span>Not Signed In</span>
+          <Auth setDisplayName={setDisplayName} />
+        </div>
+      )}
     </div>
   );
 }

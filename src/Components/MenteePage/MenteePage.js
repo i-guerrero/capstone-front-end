@@ -49,8 +49,7 @@ export default function MenteePage() {
     {
       name: "Status",
       cell: () => (
-        <button
-          className="button-link"
+        <button className="join-btn"
           onClick={() => {
             navigate("/mentor-accepted");
             console.log("Joined");

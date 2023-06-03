@@ -39,13 +39,16 @@ export default function MentorPage() {
     {
       name: "Status",
       cell: () => (
-        <button
+        <button className="join-btn"
           onClick={() => {
             navigate("/mentor-accepted");
             console.log("Joined");
           }}
         >
-          Join
+          Join <span
+            className="fa-solid fa-up-right-from-square  fa-2xs"
+            style={{color: '#292e74;'}}
+          ></span>
         </button>
       ),
       grow: 1,

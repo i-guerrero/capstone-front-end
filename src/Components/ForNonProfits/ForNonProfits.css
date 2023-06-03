@@ -13,31 +13,35 @@
   text-align: center;
 }
 
-.button-link {
-  margin: auto;
-  font-size: 20px;
-  /* padding: 12px 36px; */
-  background-color: #292e74;
-  border: none;
-  border-radius: 4px;
+
+.get-started {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 18px;
+  text-decoration: none;
   color: white;
-  cursor: pointer;
-  transition: 0.25s;
+  background-color:  #292e74;
+  border: none;
+  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); */
+  transition: all 0.2s ease-in-out;
+  margin: auto;
 }
 
-.button-link:hover {
+.get-started:hover {
   transform: scale(1.15);
 }
 
 .pair-logo{
+ 
 width: 70%;
-height: 70%;
+height: 60%;
 }
 
 .mke-chge {
   border-radius: 20%;
-  height: 80%;
-  width: 80%;
+  height: 60%;
+  width: 60%;
 }
 
 .profit-container {
@@ -50,6 +54,17 @@ height: 70%;
     text-align: center;
     padding-top: 2%;
 }
+.profit-item h2{
+  padding-left: 10%;
+  color:#073aa4ff;
+  max-width: 40%;
+}
+
+.profit-item h3{
+  padding: 0px;
+  color:#073aa4ff;
+  max-width: 40%;
+}
 
 .dev {
     font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
@@ -57,11 +72,9 @@ height: 70%;
     padding-left: 10%;
 }
 .contact {
-    /* width: 200px;
-    text-align: center;
-    height: 100px; */
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .contact-container {
-    
+    margin: auto;
 }
