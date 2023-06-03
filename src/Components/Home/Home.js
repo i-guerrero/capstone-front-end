@@ -1,10 +1,13 @@
 import "./Home.css";
+import { useState } from "react";
 // import welcomeF from "./welcomeF.png";
 import devteam from "./undraw_engineering_team_a7n2.svg";
 import { useNavigate } from "react-router-dom";
+import { Auth } from "../Auth";
 
 export default function Home() {
   const navigate = useNavigate();
+  const [displayName, setDisplayName] = useState("");
 
   return (
     <div className="home">
@@ -62,6 +65,13 @@ export default function Home() {
           ></span>
         </div>
       </div>
+      {displayName ? (
+        <span>ghello</span>
+      ) : (
+        <div> <span>Not Signed In</span>
+          <Auth setDisplayName={setDisplayName} />
+        </div>
+      )}
     </div>
   );
 }

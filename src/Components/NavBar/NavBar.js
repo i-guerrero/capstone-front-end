@@ -10,6 +10,7 @@ const API = process.env.REACT_APP_BASE_URL;
 export default function NavBar() {
   const [toggleOpen, setToggleOpen] = useState(false);
   const [signUpModal, setSignUpModal] = useState(false);
+
   const navigate = useNavigate();
 
   const [newUser, setNewUser] = useState({
@@ -27,6 +28,7 @@ export default function NavBar() {
 
   function handleSubmit(e) {
     e.preventDefault();
+    // send new user password/email with firebase email/password createUserWithEmailAndPassword .then
     axios.post(`${API}/users`, newUser).then(() => navigate("/"));
   }
 
