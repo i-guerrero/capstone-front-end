@@ -2,19 +2,19 @@ import React from "react";
 import ReactDom from "react-dom";
 import "./SignUp.css";
 
-const SIGN_UP_STYLES = {
-  height:"40%",
-  position: "fixed",
-  tranform: "translate(-50%, -50%)",
-  backgroundColor: "#ebdc02",
-  padding: "50px",
-  zIndex: 1000,
-  top: "20%",
-  left: "10%",
-  right: "10%",
-  bottom: "10%",
+// const SIGN_UP_STYLES = {
+//   height:"40%",
+//   position: "fixed",
+//   tranform: "translate(-50%, -50%)",
+//   backgroundColor: "#ebdc02",
+//   padding: "50px",
+//   zIndex: 1000,
+//   top: "20%",
+//   left: "10%",
+//   right: "10%",
+//   bottom: "10%",
 
-};
+// };
 
 const OVERLAY_STYLES = {
   position: "fixed",
