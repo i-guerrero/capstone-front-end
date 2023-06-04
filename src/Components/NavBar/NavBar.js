@@ -4,12 +4,18 @@ import { Link, useNavigate } from "react-router-dom";
 import "./NavBar.css";
 import logo from "./DevImpactLogo.png";
 import SignUp from "./SignUp.js";
+import { Auth } from "../Auth";
+import LogIn from "./LogIn";
+import { auth, googleProvider } from "../Firebase";
+import { signOut, createUserWithEmailAndPassword } from "firebase/auth";
 
 const API = process.env.REACT_APP_BASE_URL;
 
 export default function NavBar() {
   const [toggleOpen, setToggleOpen] = useState(false);
   const [signUpModal, setSignUpModal] = useState(false);
+  const [logInModal, setLogInModal] = useState(false);
+  const [displayName, setDisplayName] = useState("");
 
   const navigate = useNavigate();
 
@@ -26,14 +32,27 @@ export default function NavBar() {
     linkedin: "",
   });
 
-  function handleSubmit(e) {
+  const logOut = async () => {
+    try {
+      await signOut(auth);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  async function handleSubmit(e) {
     e.preventDefault();
-    // send new user password/email with firebase email/password createUserWithEmailAndPassword .then
-    axios.post(`${API}/users`, newUser).then(() => navigate("/"));
+    const firebaseUser = await createUserWithEmailAndPassword(
+      auth,
+      newUser.email,
+      newUser.user_pw
+    );
+    console.log(firebaseUser);
+    await axios.post(`${API}/users`, newUser).then(() => navigate("/"));
   }
 
   function handleChange(e) {
-    setNewUser({ ...newUser, [e.target.id]: e.target.value });
+    setNewUser({ ...newUser, [e.target.getAttribute("name")]: e.target.value });
   }
 
   function handleToggleClick() {
@@ -44,8 +63,11 @@ export default function NavBar() {
     setToggleOpen(false);
   }
   function handleSignUp() {
-    // $(this).toggleClass()
     setSignUpModal(true);
+  }
+
+  function handleLogIn() {
+    setLogInModal(true);
   }
 
   return (
@@ -96,6 +118,25 @@ export default function NavBar() {
             <button className="sign-up" onClick={handleSignUp}>
               Join Dev Impact
             </button>
+            <br />
+            {displayName ? (
+              <div>
+                <h4>hello {displayName}</h4>
+                <button onClick={logOut}>Logout</button>
+              </div>
+            ) : (
+              <div>
+                <button onClick={handleLogIn}>Already A Member?</button>
+                {logInModal ? (
+                  <LogIn
+                    openModal={logInModal}
+                    closeModal={() => setLogInModal(false)}
+                  >
+                    <Auth setDisplayName={setDisplayName} />
+                  </LogIn>
+                ) : null}
+              </div>
+            )}
           </ul>
 
           <SignUp open={signUpModal} close={() => setSignUpModal(false)}>
@@ -105,7 +146,7 @@ export default function NavBar() {
                 type="text"
                 required
                 value={newUser.first_name}
-                id="first_name"
+                name="first_name"
                 className="input"
                 onChange={(e) => handleChange(e)}
               />
@@ -114,7 +155,7 @@ export default function NavBar() {
                 type="text"
                 required
                 value={newUser.last_name}
-                id="last_name"
+                name="last_name"
                 className="input"
                 onChange={(e) => handleChange(e)}
               />
@@ -123,7 +164,7 @@ export default function NavBar() {
                 type="text"
                 required
                 value={newUser.email}
-                id="email"
+                name="email"
                 className="input"
                 onChange={(e) => handleChange(e)}
               />
@@ -132,7 +173,7 @@ export default function NavBar() {
                 type="text"
                 required
                 value={newUser.company}
-                id="company"
+                name="company"
                 className="input"
                 onChange={(e) => handleChange(e)}
               />
@@ -141,7 +182,7 @@ export default function NavBar() {
                 type="text"
                 required
                 value={newUser.city}
-                id="city"
+                name="city"
                 className="input"
                 onChange={(e) => handleChange(e)}
               />
@@ -150,7 +191,7 @@ export default function NavBar() {
                 type="text"
                 required
                 value={newUser.country}
-                id="country"
+                name="country"
                 className="input"
                 onChange={(e) => handleChange(e)}
               />
@@ -159,16 +200,16 @@ export default function NavBar() {
                 type="text"
                 required
                 value={newUser.user_name}
-                id="user_name"
+                name="user_name"
                 className="input"
                 onChange={(e) => handleChange(e)}
               />
               <label htmlFor="user_pw">Password&nbsp;</label>
               <input
-                type="text"
+                type="password"
                 required
                 value={newUser.user_pw}
-                id="user_pw"
+                name="user_pw"
                 className="input"
                 onChange={(e) => handleChange(e)}
               />
@@ -177,24 +218,21 @@ export default function NavBar() {
               <input
                 type="radio"
                 value="Mentor"
-                id="user_type1"
-                name="radio"
+                name="user_type"
                 onChange={(e) => handleChange(e)}
               />
               <label htmlFor="user_type1">Volunteer Mentor&nbsp;</label>
               <input
                 type="radio"
                 value="Mentee"
-                id="user_type2"
-                name="radio"
+                name="user_type"
                 onChange={(e) => handleChange(e)}
               />
-              <label htmlFor="user_type2">Volunteer Mentee&nbsp;</label>
+              <label htmlFor="user_type">Volunteer Mentee&nbsp;</label>
               <input
                 type="radio"
                 value="Non-profit"
-                id="user_type3"
-                name="radio"
+                name="user_type"
                 onChange={(e) => handleChange(e)}
               />
               <label htmlFor="user_type3">Non-profit&nbsp;</label> <br />
@@ -203,7 +241,7 @@ export default function NavBar() {
                 type="text"
                 required
                 value={newUser.linkedin}
-                id="linkedin"
+                name="linkedin"
                 className="input"
                 onChange={(e) => handleChange(e)}
               />
