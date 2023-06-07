@@ -1,125 +1,13 @@
 .navbar {
-  align-items: center;
   background: #292e74;
-  display: flex;
-  /* flex-wrap: wrap; */
-  justify-content: flex-start;
-  padding: 12px 16px;
-  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
-    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
+  color: white;
 }
 
-/* .navbar h1 {
-    height: auto;
-    margin: 0;
-    font-size: 36px;
-}
-
-.navbar h1 span {
-    font-weight: bold;
-}
-
-.navbar h1 a {
-    color: white;
-    text-decoration: none;
-}
-
-.navbar ul {
-    list-style: none;
-    padding: 0;
+/* .navbar a {
+  color: white;
 } */
 
-.navbar ul li {
-  position: relative;
-  display: inline-block;
-  font-family: var(--primary-font);
-  font-size: 18px;
-  padding: 0 25px;
-}
-
-.navbar ul li a {
-  color: white;
-  font-weight: 500;
-  padding-bottom: 5px;
-  text-decoration: none;
-}
-
-.toggle-button {
-  background: none;
-  border: none;
-  color: white;
-  cursor: pointer;
-  font-family: var(--primary-font);
-  font-size: 18px;
-  font-weight: 500;
-  padding: 0;
-  text-decoration: none;
-}
-
-.navbar ul li a:hover {
-  border-bottom: 2px solid;
-}
-
-.navbar-logo a {
-  display: block !important;
-  width: 100% !important;
-}
-
-.navbar-logo img {
-  display: block;
+.logo {
   width: 120px;
   height: 120px;
-}
-
-.submenu {
-  display: flex;
-  width: 240px;
-  gap: 12px;
-  border-radius: 4px;
-  position: absolute;
-  padding: 0;
-  left: 0;
-  top: 2rem;
-}
-
-.submenu li {
-  padding: 0 !important;
-}
-
-@media (max-width: 768px) {
-  .navbar {
-    gap: 12px;
-    flex-direction: column;
-  }
-}
-
-.sign-up {
-  display: inline-block;
-  padding: 9px 15px;
-  border-radius: 5px;
-  font-size: 15px;
-  text-align: center;
-
-  color: rgb(0, 0, 0);
-  background-color: #ebdc02;
-  border: none;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  transition: all 0.2s ease-in-out;
-  margin-top: 60px;
-}
-
-.sign-up:hover {
-  color: rgb(255, 255, 255);
-  background-color: #ebdc02;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-  cursor: pointer;
-  transform: scale(1.10);
-}
-
-.form{
- 
 }

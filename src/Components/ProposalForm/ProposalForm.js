@@ -34,7 +34,7 @@ export default function New() {
 
 
     createNewProposals(newProposalForm).then((newProposalFormEnd) => {
-      navigate("/experts");
+      navigate("/proposal-accepted");
       console.log(newProposalFormEnd);
     });
   }
