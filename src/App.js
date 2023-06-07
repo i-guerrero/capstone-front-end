@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Components/Home/Home";
 import NavBar from "./Components/NavBar/NavBar";
-// import { useState } from "react";
+import { useState } from "react";
 // import ProposalList from "./ProposalList";
 // import ShowOneProposal from "./ShowOneProposal";
 // import EditProposal from "./EditProposal";
@@ -18,6 +18,13 @@ import ProposalAccepted from "./Components/ProposalAccepted/ProposalAccepted";
 
 
 function App() {
+
+const [confirmation, setConfirmation] = useState(false);
+
+function handleConfirm() {
+  setConfirmation(true);
+}
+
 
 
   return (
