@@ -14,6 +14,7 @@ import MentorPage from "./Components/MentorPage/MentorPage";
 import ProposalForm from "./Components/ProposalForm/ProposalForm";
 import MentorForm from "./Components/MentorForm/MentorForm";
 import MentorAccepted from "./Components/MentorAccepted/MentorAccepted";
+import MenteeAccepted from "./Components/MenteeAccepted/MenteeAccepted";
 import ProposalAccepted from "./Components/ProposalAccepted/ProposalAccepted";
 
 
@@ -34,6 +35,7 @@ function App() {
           <Route path="/non-experts" element={<MenteePage />} />
           <Route path="/experts" element={<MentorPage />} />
           <Route path="/mentor-accepted" element={<MentorAccepted />} />
+          <Route path="/mentee-accepted" element={<MenteeAccepted />} />
           <Route path="/proposal-accepted" element={<ProposalAccepted />} />
           {/* <Route path="/proposals" element={<ProposalList />} />
           <Route path="/proposals/:id" element={<ShowOneProposal />} />

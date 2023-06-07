@@ -59,7 +59,7 @@ export default function MenteePage() {
       cell: () => (
         <button className="join-btn"
           onClick={() => {
-            navigate("/mentor-accepted");
+            navigate("/mentee-accepted");
             console.log("Joined");
           }}
         >
