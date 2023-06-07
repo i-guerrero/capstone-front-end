@@ -2,6 +2,7 @@ import React from "react";
 import ReactDom from "react-dom";
 import "./SignUp.css";
 
+
 // const SIGN_UP_STYLES = {
 //   height:"40%",
 //   position: "fixed",
@@ -15,6 +16,7 @@ import "./SignUp.css";
 //   bottom: "10%",
 
 // };
+
 
 const OVERLAY_STYLES = {
   position: "fixed",
