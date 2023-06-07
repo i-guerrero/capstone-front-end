@@ -5,7 +5,7 @@ export function getAllProposals() {
   const request = fetch(`${BASE_URL}/proposals`)
     .then((response) => response.json())
     .then((AllProposals) => AllProposals);
-  console.log(request)
+  // console.log(request)
   return request;
 }
 

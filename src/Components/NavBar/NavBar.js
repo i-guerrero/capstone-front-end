@@ -34,7 +34,8 @@ export default function NavBar() {
 
   const logOut = async () => {
     try {
-      await signOut(auth);
+      await signOut(auth).then(setDisplayName(""), setLogInModal(false));
+      navigate("/");
     } catch (err) {
       console.error(err);
     }
@@ -48,7 +49,7 @@ export default function NavBar() {
       newUser.user_pw
     );
     console.log(firebaseUser);
-    await axios.post(`${API}/users`, newUser).then(() => navigate("/"));
+    await axios.post(`${API}/users`, newUser).then(() => navigate("/profile"));
   }
 
   function handleChange(e) {

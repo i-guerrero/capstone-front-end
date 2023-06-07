@@ -4,7 +4,7 @@ export function getAllProjects() {
   const request = fetch(`${BASE_URL}/projects`)
     .then((response) => response.json())
     .then((Allprojects) => Allprojects);
-  console.log(request);
+  // console.log(request);
   return request;
 }
 
