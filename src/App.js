@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Components/Home/Home";
 import NavBar from "./Components/NavBar/NavBar";
-import { useState } from "react";
+// import { useState } from "react";
 // import ProposalList from "./ProposalList";
 // import ShowOneProposal from "./ShowOneProposal";
 // import EditProposal from "./EditProposal";
@@ -15,11 +15,9 @@ import ProposalForm from "./Components/ProposalForm/ProposalForm";
 import MentorForm from "./Components/MentorForm/MentorForm";
 import MentorAccepted from "./Components/MentorAccepted/MentorAccepted";
 import ProfilePage from "./ProfilePage";
-
+import ProposalAccepted from "./Components/ProposalAccepted/ProposalAccepted";
 
 function App() {
-
-
   return (
     <div>
       <BrowserRouter>
@@ -35,6 +33,7 @@ function App() {
           <Route path="/experts" element={<MentorPage />} />
           <Route path="/mentor-accepted" element={<MentorAccepted />} />
           <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/proposal-accepted" element={<ProposalAccepted />} />
           {/* <Route path="/proposals" element={<ProposalList />} />
           <Route path="/proposals/:id" element={<ShowOneProposal />} />
           <Route path="/proposals/:id/edit" element={<EditProposal />} /> */}

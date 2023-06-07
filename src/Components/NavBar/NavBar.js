@@ -1,19 +1,21 @@
-import { useState } from "react";
-import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
-import "./NavBar.css";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import NavDropdown from "react-bootstrap/NavDropdown";
 import logo from "./DevImpactLogo.png";
 import SignUp from "./SignUp.js";
 import { Auth } from "../Auth";
 import LogIn from "./LogIn";
 import { auth, googleProvider } from "../Firebase";
 import { signOut, createUserWithEmailAndPassword } from "firebase/auth";
+import Image from "react-bootstrap/Image";
+import "./NavBar.css";
 
 const API = process.env.REACT_APP_BASE_URL;
 
-export default function NavBar() {
-  const [toggleOpen, setToggleOpen] = useState(false);
-  const [signUpModal, setSignUpModal] = useState(false);
+function NavBar() {
+  
+    const [signUpModal, setSignUpModal] = useState(false);
   const [logInModal, setLogInModal] = useState(false);
   const [displayName, setDisplayName] = useState("");
 
@@ -71,52 +73,27 @@ export default function NavBar() {
     setLogInModal(true);
   }
 
+  
+  
   return (
-    <div>
-      <header className="navbar">
-        <div className="navbar-logo">
-          <Link onClick={handleButton} to="/">
-            <img src={logo} alt="logo" />
-          </Link>
-        </div>
+    <Navbar className="navbar" variant="dark" expand="lg">
+      <Container>
+        <Navbar.Brand href="/">
+          <Image className="logo" src={logo} alt="Dev Impact Logo" />
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <NavDropdown title="For Developers" id="basic-nav-dropdown">
+              <NavDropdown.Item href="/experts">Mentors</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="/non-experts">Mentees</NavDropdown.Item>
+            </NavDropdown>
 
-        <nav>
-          <ul>
-            <li>
-              <Link className="toggle-button" onClick={handleToggleClick}>
-                <span>For Developers</span>
-              </Link>
-              {toggleOpen && (
-                <ul className="submenu">
-                  <li>
-                    <Link onClick={handleButton} to="/experts">
-                      Mentors
-                    </Link>
-                  </li>
-                  <li>
-                    <Link onClick={handleButton} to="/non-experts">
-                      Mentees
-                    </Link>
-                  </li>
-                </ul>
-              )}
-            </li>
-            <li>
-              <Link onClick={handleButton} to="/for-non-profits">
-                Non-profits
-              </Link>
-            </li>
-            <li>
-              <Link onClick={handleButton} to="/how-it-works">
-                How it works
-              </Link>
-            </li>
-            <li>
-              <Link onClick={handleButton} to="/our-impact">
-                Our Impact
-              </Link>
-            </li>
-            <button className="sign-up" onClick={handleSignUp}>
+            <Nav.Link href="/for-non-profits">For Non Profits</Nav.Link>
+            <Nav.Link href="/how-it-works">How it Works</Nav.Link>
+            <Nav.Link href="/our-impact">Our Impact</Nav.Link>
+     <button className="sign-up" onClick={handleSignUp}>
               Join Dev Impact
             </button>
             <br />
@@ -252,8 +229,11 @@ export default function NavBar() {
               </button>
             </form>
           </SignUp>
-        </nav>
-      </header>
-    </div>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 }
+
+export default NavBar;

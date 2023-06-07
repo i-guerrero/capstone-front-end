@@ -19,15 +19,10 @@ export default function MenteePage() {
   
   const columns = [
     {
-      name: "Non-profit Organization",
-      selector: (row) => row.non_profit_organization,
+      name: "Project Impact",
+      selector: (row) => row.impact,
       grow: 1,
-      center: true,
-    },
-    {
-      name: "Project Proposal",
-      selector: (row) => row.description,
-      grow: 1,
+      wrap: true,
       center: true,
     },
     {
@@ -60,9 +55,10 @@ export default function MenteePage() {
             console.log("Joined");
           }}
         >
-          Join Now <span
+          Join Now{" "}
+          <span
             className="fa-solid fa-up-right-from-square  fa-2xs"
-            style={{color: '#292e74;'}}
+            style={{ color: "#292e74;" }}
           ></span>
         </button>
       ),

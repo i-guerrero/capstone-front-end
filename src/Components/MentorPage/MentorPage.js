@@ -15,14 +15,9 @@ export default function MentorPage() {
   }, []);
 
   const columns = [
+
     {
       name: "Non-profit Organization",
-      selector: (row) => row.non_profit_id,
-      grow: 1,
-      center: true,
-    },
-    {
-      name: "Title",
       selector: (row) => row.title,
       grow: 1,
       center: true,
