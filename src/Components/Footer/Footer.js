@@ -1,12 +1,13 @@
 import React from "react";
 import "./Footer.css";
+
 import instagramLogo from "./icons-instagram.jpeg";
 import twitterLogo from "./twitter-icon-design.jpeg";
 import youtubeLogo from "./youtube-icon.jpeg";
 
 export default function Footer() {
   return (
-    <div className="footer">
+    <div className="footer py-3">
       <div className="social-media">
         <a
           href="https://www.instagram.com/"

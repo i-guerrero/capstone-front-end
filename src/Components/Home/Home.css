@@ -1,8 +1,6 @@
 .home {
-  height: calc(100vh - 64px);
-  overflow: scroll;
+  height: calc(100vh - 108px);
   background: scroll;
-  background-color: rgba(119, 187, 223, 0.498);
 }
 
 .home h4 {
@@ -20,7 +18,6 @@
 #title {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-size: large;
-  padding-left: 10%;
 }
 
 .home-button {
@@ -52,10 +49,9 @@
 
 .grid-item h1,
 .grid-item h4 {
-  text-align: center;
 }
 
 .grid-item img {
-    height: 40%;
-    padding-left: 10%;
+  width: 100%;
+  height: 100%
 }
