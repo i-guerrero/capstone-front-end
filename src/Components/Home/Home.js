@@ -1,13 +1,11 @@
 import "./Home.css";
-import { useState } from "react";
+// import { useState } from "react";
 // import welcomeF from "./welcomeF.png";
 import devteam from "./undraw_engineering_team_a7n2.svg";
 import { useNavigate } from "react-router-dom";
 
-
 export default function Home() {
   const navigate = useNavigate();
-
 
   return (
     <div className="home">
@@ -65,7 +63,6 @@ export default function Home() {
           ></span>
         </div>
       </div>
-     
     </div>
   );
 }
