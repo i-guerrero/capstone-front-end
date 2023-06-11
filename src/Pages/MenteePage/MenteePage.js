@@ -1,22 +1,30 @@
 import DataTable from "react-data-table-component";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { getAllProjects } from "../../API/Project";
-
+import ConfirmationModal from "../Components/ConfirmationModal.js";
 import "./MenteePage.css";
-
-
-
+// import axios from "axios";
 
 export default function MenteePage() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [projects, setProjects] = useState([]);
-    useEffect(() => {
-      getAllProjects().then((projectsList) => {
-        setProjects(projectsList);
-      });
-    }, []);
-  
+  const [confirmModal, setConfirmModal] = useState(false);
+
+
+  useEffect(() => {
+    getAllProjects().then((projectsList) => {
+      setProjects(projectsList);
+    });
+  }, []);
+
+
+  function handleConfirm() {
+    setConfirmModal(true);
+  }
+
+  console.log(confirmModal);
+
   const columns = [
     {
       name: "Project Impact",
@@ -49,33 +57,37 @@ export default function MenteePage() {
     {
       name: "Status",
       cell: () => (
-        <button className="join-btn"
-          onClick={() => {
-            navigate("/mentor-accepted");
-            console.log("Joined");
-          }}
-        >
-          Join Now{" "}
-          <span
-            className="fa-solid fa-up-right-from-square  fa-2xs"
-            style={{ color: "#292e74;" }}
-          ></span>
+        <>    <button className="join-btn" onClick={handleConfirm}>
+          Join This Project{" "}
+          <span className="fa-solid fa-up-right-from-square  fa-2xs"></span>
         </button>
+        {confirmModal ? (
+          <ConfirmationModal
+            confirmModal={confirmModal}
+            closeModal={() => {
+              setConfirmModal(false);
+            }}
+          >
+            <div>Modal is open</div>
+          </ConfirmationModal>
+        ) : null}
+        </>
+    
+        
       ),
       grow: 1,
       center: true,
     },
   ];
-  // <Link to="/projects-new" className="button-link">
-  //   Proposal Form
-  // </Link>;
+
   return (
     <div className="home">
       <article>
-        See all these Non-Profits Organization which you can colaborate now!
+        See all the Organizations you can colaborate with now!
       </article>
       <br />
       <div className="data-table-container">
+       
         <DataTable columns={columns} data={projects} />
       </div>
     </div>
