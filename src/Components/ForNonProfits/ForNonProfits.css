@@ -1,31 +1,42 @@
 .home {
-  display: flex;
-  flex-direction: column;
-
-  justify-content: center;
+  height: calc(100vh - 108px);
+  background: scroll;
 }
 
 .home article {
-  /* margin-bottom: 30px;
-    padding-right: 20%;*/
   padding-top: 20%;
-
   text-align: center;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#title {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: large;
 }
 
 
 .get-started {
   display: inline-block;
-  padding: 10px 20px;
+  padding: 40px 80px;
+  /* Aumenta los valores de padding para hacer los botones más grandes */
   border-radius: 5px;
   font-size: 18px;
+  font-weight:bold;
+  text-align: center;
   text-decoration: none;
   color: white;
-  background-color:  #292e74;
+  background-color: rgb(37, 150, 190);
+  /* rgb(37, 150, 190); 
+  #2596be
+  */
   border: none;
   /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); */
   transition: all 0.2s ease-in-out;
-  margin: auto;
+  margin-top: 60px;
 }
 
 .get-started:hover {
@@ -33,16 +44,10 @@
 }
 
 .pair-logo{
- 
 width: 70%;
 height: 60%;
 }
 
-.mke-chge {
-  border-radius: 20%;
-  height: 60%;
-  width: 60%;
-}
 
 .profit-container {
   display: grid;
@@ -56,13 +61,13 @@ height: 60%;
 }
 .profit-item h2{
   padding-left: 10%;
-  color:#073aa4ff;
+  color:black;
   max-width: 40%;
 }
 
 .profit-item h3{
   padding: 0px;
-  color:#073aa4ff;
+  color:black;
   max-width: 40%;
 }
 
@@ -77,4 +82,49 @@ height: 60%;
 
 .contact-container {
     margin: auto;
+}
+
+/* =0=-=-=-== */
+#title {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: large;
+}
+
+.home-button {
+  display: inline-block;
+  padding: 40px 80px;
+  /* Aumenta los valores de padding para hacer los botones más grandes */
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight:bold;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  background-color: rgb(37, 150, 190);
+  /* rgb(37, 150, 190); 
+  #2596be
+  */
+  border: none;
+  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); */
+  transition: all 0.2s ease-in-out;
+  margin-top: 60px;
+}
+
+.home-button:hover {
+  background-color: #292e74;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.grid-item img {
+  width: 100%;
+  height: 100%
 }

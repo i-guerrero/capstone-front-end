@@ -14,6 +14,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+
 const API = process.env.REACT_APP_BASE_URL;
 
 function NavBar() {
@@ -81,7 +82,10 @@ function NavBar() {
       expand="lg"
     >
       <Link to="/">
-        <Image className="logo" src={logo} alt="Dev Impact Logo" />
+        <div className="logo-container">
+          <Image className="logo" src={logo} alt="Dev Impact Logo" />
+          <span className="logo-name">Dev Impact</span>
+        </div>
       </Link>
 
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -122,145 +126,149 @@ function NavBar() {
             Our Impact
           </Link>
 
+          <div className="divider" />
 
+          <button className="sign-up" onClick={handleSignUp}>
+            Join Dev Impact
+          </button>
 
-            <button className="sign-up" onClick={handleSignUp}>
-              Join Dev Impact
-            </button>
-            <br />
-            {displayName ? (
-              <div>
-                <h4>hello {displayName}</h4>
-                <button onClick={logOut}>Logout</button>
-              </div>
-            ) : (
-              <div>
-                <button onClick={handleLogIn}>Already A Member?</button>
-                {logInModal ? (
-                  <LogIn
-                    openModal={logInModal}
-                    closeModal={() => setLogInModal(false)}
-                  >
-                    <Auth setDisplayName={setDisplayName} />
-                  </LogIn>
-                ) : null}
-              </div>
-            )}
+          <br />
+          {displayName ? (
+            <div>
+              <h4>hello {displayName}</h4>
+              <button onClick={logOut}>Logout</button>
+            </div>
+          ) : (
+            <div>
+              <button className="already-member" onClick={handleLogIn}>
+                Already A Member
+              </button>
 
-            <SignUp open={signUpModal} close={() => setSignUpModal(false)}>
-              <form className="" onSubmit={(e) => handleSubmit(e)}>
-                <label htmlFor="first_name">First Name &nbsp;</label>
-                <input
-                  type="text"
-                  required
-                  value={newUser.first_name}
-                  name="first_name"
-                  className="input"
-                  onChange={(e) => handleChange(e)}
-                />
-                <label htmlFor="last_name">Last Name &nbsp;</label>
-                <input
-                  type="text"
-                  required
-                  value={newUser.last_name}
-                  name="last_name"
-                  className="input"
-                  onChange={(e) => handleChange(e)}
-                />
-                <label htmlFor="email">Email &nbsp;</label>
-                <input
-                  type="text"
-                  required
-                  value={newUser.email}
-                  name="email"
-                  className="input"
-                  onChange={(e) => handleChange(e)}
-                />
-                <label htmlFor="company">Company &nbsp;</label>
-                <input
-                  type="text"
-                  required
-                  value={newUser.company}
-                  name="company"
-                  className="input"
-                  onChange={(e) => handleChange(e)}
-                />
-                <label htmlFor="company">City</label>
-                <input
-                  type="text"
-                  required
-                  value={newUser.city}
-                  name="city"
-                  className="input"
-                  onChange={(e) => handleChange(e)}
-                />
-                <label htmlFor="country">Country &nbsp;</label>
-                <input
-                  type="text"
-                  required
-                  value={newUser.country}
-                  name="country"
-                  className="input"
-                  onChange={(e) => handleChange(e)}
-                />
-                <label htmlFor="user_name">User Name&nbsp;</label>
-                <input
-                  type="text"
-                  required
-                  value={newUser.user_name}
-                  name="user_name"
-                  className="input"
-                  onChange={(e) => handleChange(e)}
-                />
-                <label htmlFor="user_pw">Password&nbsp;</label>
-                <input
-                  type="password"
-                  required
-                  value={newUser.user_pw}
-                  name="user_pw"
-                  className="input"
-                  onChange={(e) => handleChange(e)}
-                />
-                <h4>Please choose your role&nbsp;</h4>
-                 
-                <input
-                  type="radio"
-                  value="Mentor"
-                  name="user_type"
-                  onChange={(e) => handleChange(e)}
-                />
-                <label htmlFor="user_type1">Volunteer Mentor&nbsp;</label>
-                <input
-                  type="radio"
-                  value="Mentee"
-                  name="user_type"
-                  onChange={(e) => handleChange(e)}
-                />
-                <label htmlFor="user_type">Volunteer Mentee&nbsp;</label>
-                <input
-                  type="radio"
-                  value="Non-profit"
-                  name="user_type"
-                  onChange={(e) => handleChange(e)}
-                />
-                <label htmlFor="user_type3">Non-profit&nbsp;</label> <br />
-                <label htmlFor="linkedin">Linkedin &nbsp;</label>
-                <input
-                  type="text"
-                  required
-                  value={newUser.linkedin}
-                  name="linkedin"
-                  className="input"
-                  onChange={(e) => handleChange(e)}
-                />
-                <br />
-                <button className="submit" type="submit">
-                  Submit
-                </button>
-              </form>
-            </SignUp>
-          </Nav>
-        </Navbar.Collapse>
+              {logInModal ? (
+                <LogIn
+                  openModal={logInModal}
+                  closeModal={() => setLogInModal(false)}
+                >
+                  <Auth setDisplayName={setDisplayName} />
+                </LogIn>
+              ) : null}
+            </div>
+          )}
+
+          <SignUp open={signUpModal} close={() => setSignUpModal(false)}>
+            <form className="" onSubmit={(e) => handleSubmit(e)}>
+              <label htmlFor="first_name">First Name &nbsp;</label>
+              <input
+                type="text"
+                required
+                value={newUser.first_name}
+                name="first_name"
+                className="input"
+                onChange={(e) => handleChange(e)}
+              />
+              <label htmlFor="last_name">Last Name &nbsp;</label>
+              <input
+                type="text"
+                required
+                value={newUser.last_name}
+                name="last_name"
+                className="input"
+                onChange={(e) => handleChange(e)}
+              />
+              <label htmlFor="email">Email &nbsp;</label>
+              <input
+                type="text"
+                required
+                value={newUser.email}
+                name="email"
+                className="input"
+                onChange={(e) => handleChange(e)}
+              />
+              <label htmlFor="company">Company &nbsp;</label>
+              <input
+                type="text"
+                required
+                value={newUser.company}
+                name="company"
+                className="input"
+                onChange={(e) => handleChange(e)}
+              />
+              <label htmlFor="company">City</label>
+              <input
+                type="text"
+                required
+                value={newUser.city}
+                name="city"
+                className="input"
+                onChange={(e) => handleChange(e)}
+              />
+              <label htmlFor="country">Country &nbsp;</label>
+              <input
+                type="text"
+                required
+                value={newUser.country}
+                name="country"
+                className="input"
+                onChange={(e) => handleChange(e)}
+              />
+              <label htmlFor="user_name">User Name&nbsp;</label>
+              <input
+                type="text"
+                required
+                value={newUser.user_name}
+                name="user_name"
+                className="input"
+                onChange={(e) => handleChange(e)}
+              />
+              <label htmlFor="user_pw">Password&nbsp;</label>
+              <input
+                type="password"
+                required
+                value={newUser.user_pw}
+                name="user_pw"
+                className="input"
+                onChange={(e) => handleChange(e)}
+              />
+              <h4>Please choose your role&nbsp;</h4>
+               
+              <input
+                type="radio"
+                value="Mentor"
+                name="user_type"
+                onChange={(e) => handleChange(e)}
+              />
+              <label htmlFor="user_type1">Volunteer Mentor&nbsp;</label>
+              <input
+                type="radio"
+                value="Mentee"
+                name="user_type"
+                onChange={(e) => handleChange(e)}
+              />
+              <label htmlFor="user_type">Volunteer Mentee&nbsp;</label>
+              <input
+                type="radio"
+                value="Non-profit"
+                name="user_type"
+                onChange={(e) => handleChange(e)}
+              />
+              <label htmlFor="user_type3">Non-profit&nbsp;</label> <br />
+              <label htmlFor="linkedin">Linkedin &nbsp;</label>
+              <input
+                type="text"
+                required
+                value={newUser.linkedin}
+                name="linkedin"
+                className="input"
+                onChange={(e) => handleChange(e)}
+              />
+              <br />
+              <button className="submit" type="submit">
+                Submit
+              </button>
+            </form>
+          </SignUp>
+        </Nav>
+      </Navbar.Collapse>
     </Navbar>
   );
 }

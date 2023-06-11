@@ -22,23 +22,29 @@
 
 .home-button {
   display: inline-block;
-  padding: 10px 20px;
+  padding: 40px 80px;
+  /* Aumenta los valores de padding para hacer los botones más grandes */
   border-radius: 5px;
   font-size: 18px;
+  font-weight:bold;
   text-align: center;
   text-decoration: none;
   color: white;
-  background-color: #4d52a5;
+  background-color: rgb(37, 150, 190);
+  /* rgb(37, 150, 190); 
+  #2596be
+  */
   border: none;
   /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); */
   transition: all 0.2s ease-in-out;
   margin-top: 60px;
 }
+
 .home-button:hover {
   background-color: #292e74;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
   cursor: pointer;
-  transform: scale(1.10);
+  transform: scale(1.1);
 }
 
 .grid-container {

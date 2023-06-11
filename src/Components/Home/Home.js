@@ -1,7 +1,7 @@
 import "./Home.css";
 // import { useState } from "react";
 // import welcomeF from "./welcomeF.png";
-import devteam from "./undraw_engineering_team_a7n2.svg";
+import devteam from "./undraw_engineering_team_a7n2 (1).svg";
 import { useNavigate } from "react-router-dom";
 
 export default function Home() {
@@ -12,7 +12,7 @@ export default function Home() {
       <div className="container">
         <div className="grid-container">
           <div className="grid-item d-flex flex-column gap-3">
-            <span id="title">DEV IMPACT</span>
+            <span id="title"></span>
             <h1>The greatest impact we have is when we come together.</h1>
             <h4 className="fw-normal">
               We are a community of developers of all stages and nonprofits
