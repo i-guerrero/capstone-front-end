@@ -12,15 +12,12 @@ const OVERLAY_STYLES = {
   zIndex: 1000,
 };
 
-export default function LogIn({ children, openModal, closeModal }) {
+export default function LogIn({ children, openModal }) {
   if (!openModal) return null;
   return ReactDom.createPortal(
     <>
       <div style={OVERLAY_STYLES}>
-        <div className="Log-In">
-          <button onClick={closeModal}>X</button>
-          {children}
-        </div>
+        <div>{children}</div>
       </div>
     </>,
     document.getElementById("log-in")

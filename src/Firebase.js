@@ -30,6 +30,7 @@ const auth = getAuth(app);
 
 onAuthStateChanged(auth, (user) => {
   if (user !== null) {
+    
     console.log("logged in");
   } else {
     console.log("no user");

@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDom from "react-dom";
-import "./SignUp.css";
+
+
 
 
 // const SIGN_UP_STYLES = {
@@ -28,15 +29,15 @@ const OVERLAY_STYLES = {
   zIndex: 1000,
 };
 
-export default function SignUp({ children, open, close }) {
-  if (!open) return null;
+export default function ConfirmationModal({ children, confirmModal,  closeModal }) {
+  if (!confirmModal) return null;
   return ReactDom.createPortal(
     <>
       <div style={OVERLAY_STYLES}>
-        <div className="background">
-          <button onClick={close}>X</button>
+        
+          <button onClick={closeModal}>X</button>
           {children}
-        </div>
+        
       </div>
     </>, document.getElementById('portal')
   );

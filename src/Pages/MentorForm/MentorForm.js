@@ -36,7 +36,7 @@ export default function New() {
     // };
 
     createNewProjects(newProjectForm).then((newProjectFormEnd) => {
-      navigate("/non-experts");
+      navigate("/projects");
     });
   }
 

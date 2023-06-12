@@ -2,12 +2,17 @@ import React, { useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
 import { useNavigate } from "react-router-dom";
 import { getAllProjects } from "../../API/Project";
+// import { useNavigate } from "react-router-dom";
+import ConfirmationModal from "../Components/ConfirmationModal.js";
 import "./MenteePage.css";
+// import axios from "axios";
 
 export default function MenteePage() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [projects, setProjects] = useState([]);
   const [filteredProjects, setFilteredProjects] = useState([]);
+  const [confirmModal, setConfirmModal] = useState(false);
+
 
   useEffect(() => {
     getAllProjects().then((projectsList) => {
@@ -23,6 +28,14 @@ export default function MenteePage() {
     );
     setFilteredProjects(filteredData);
   };
+
+
+
+  function handleConfirm() {
+    setConfirmModal(true);
+  }
+
+  console.log(confirmModal);
 
   const columns = [
     {
@@ -57,18 +70,23 @@ export default function MenteePage() {
     {
       name: "Status",
       cell: () => (
-        <button className="join-btn"
-          onClick={() => {
-            navigate("/mentee-accepted");
-            console.log("Joined");
-          }}
-        >
-          Join Now{" "}
-          <span
-            className="fa-solid fa-up-right-from-square  fa-2xs"
-            style={{ color: "#292e74;" }}
-          ></span>
+        <>    <button className="join-btn" onClick={handleConfirm}>
+          Join This Project{" "}
+          <span className="fa-solid fa-up-right-from-square  fa-2xs"></span>
         </button>
+        {confirmModal ? (
+          <ConfirmationModal
+            confirmModal={confirmModal}
+            closeModal={() => {
+              setConfirmModal(false);
+            }}
+          >
+            <div>Modal is open</div>
+          </ConfirmationModal>
+        ) : null}
+        </>
+    
+        
       ),
       grow: 1,
       center: true,
