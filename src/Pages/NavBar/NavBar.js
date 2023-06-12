@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./NavBar.css";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
@@ -17,7 +18,6 @@ import { useNavigate } from "react-router-dom";
 function NavBar({ setCurrentUser, currentUser }) {
   const [logInModal, setLogInModal] = useState(false);
   const [signUpModal, setSignUpModal] = useState(false);
- 
 
   const navigate = useNavigate();
 
@@ -68,15 +68,41 @@ function NavBar({ setCurrentUser, currentUser }) {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <NavDropdown title="For Developers" id="basic-nav-dropdown">
-              <NavDropdown.Item href="/proposals">Mentors</NavDropdown.Item>
+          <Nav className="me-auto align-items-center gap-3">
+            <NavDropdown
+              className="navbar-link"
+              title="For Developers"
+              id="basic-nav-dropdown"
+            >
+              <Link
+                to="/proposals"
+                className="px-3 text-decoration-none text-dark fw-normal"
+              >
+                Mentors
+              </Link>
+
               <NavDropdown.Divider />
-              <NavDropdown.Item href="/projects">Mentees</NavDropdown.Item>
+
+              <Link
+                to="/projects"
+                className="px-3 text-decoration-none text-dark fw-normal"
+              >
+                Mentees
+              </Link>
             </NavDropdown>
-            <Nav.Link href="/for-nonprofits">For Non Profits</Nav.Link>
-            <Nav.Link href="/how-it-works">How it Works</Nav.Link>
-            <Nav.Link href="/our-impact">Our Impact</Nav.Link>
+
+            <Link className="navbar-link" to="/for-nonprofits">
+              For Non Profits
+            </Link>
+
+            <Link className="navbar-link" to="/how-it-works">
+              How it Works
+            </Link>
+
+            <Link className="navbar-link" to="/our-impact">
+              Our Impact
+            </Link>
+
             {currentUser ? (
               <div>
                 <h4>hello {currentUser.displayName}</h4>

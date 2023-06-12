@@ -29,3 +29,10 @@
   width: 120px;
   height: 120px;
 }
+
+.navbar-link,
+.navbar-link > a {
+  color: white !important;
+  font-weight: bold !important;
+  text-decoration: none;
+}

@@ -58,6 +58,7 @@ export default function SignUp({ open, close }) {
       newUser.user_pw
     );
     console.log(firebaseUser);
+    
     await axios.post(`${API}/users`, newUser).then(() => navigate("/profile"));
     close();
   }
