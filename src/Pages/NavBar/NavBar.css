@@ -1,31 +1,86 @@
-.navbar {
-  background: #292e74;
-  color: white;
-}
 
-.sign-up {
-  padding-left: 5px;
-  display: inline-block;
-  /* padding: 20px; */
-  border-radius: 5px;
-  color: rgb(0, 0, 0);
-  background-color: #ebdc02;
-  /* border: none; */
-  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); */
-  transition: all 0.2s ease-in-out;
-  /* margin: auto; */
-}
 .redx {
   color: aliceblue;
   background-color: red;
   border: solid 2px #292e74;
 }
-.sign-up:hover {
-  color: aliceblue;
-  transform: scale(1.15);
+
+.navbar {
+  background: #292e74;
+  color: white;
 }
+/* .navbar a {
+  color: white;
+} */
+ .logo-container {
+   display: flex;
+   align-items: center ;
+   margin-right: 20px;
+ }
+
 
 .logo {
-  width: 120px;
-  height: 120px;
+  width: 56px;
+  height: 56px;
+
 }
+
+
+.logo-name {
+  font-family: 'IBM Plex Mono', monospace;
+  color: white !important;
+  font-weight: bold !important;
+  text-decoration: none !important;
+  margin-left: 10px;
+  font-size: 18px;
+}
+
+
+
+.navbar-link,
+.navbar-link > a {
+  color: white !important;
+  font-weight: bold !important;
+  text-decoration: none;
+}
+
+.sign-up,
+.already-member {
+  padding: 12px 16px;
+  /* Ajusta los valores de padding según tus preferencias */
+  border: 2px solid transparent;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.sign-up {
+  background-color: #BBBF95;
+  color: #292e74;
+}
+
+.sign-up:hover {
+  border: 2px solid white;
+  background-color: #292e74;
+  color: white;
+}
+
+.already-member {
+  background-color: white;
+  color: #292e74;
+}
+
+.already-member:hover {
+  border: 2px solid white;
+  background-color: #292e74;
+  color: white;
+}
+
+
+.divider {
+  margin: 0 6px;
+  width: 2px;
+  background-color: white;
+  height: 42px;
+}
+

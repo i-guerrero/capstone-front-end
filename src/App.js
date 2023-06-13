@@ -16,73 +16,92 @@ import MentorPage from "./Pages/MentorPage/MentorPage";
 import ProposalForm from "./Pages/ProposalForm/ProposalForm";
 import MentorForm from "./Pages/MentorForm/MentorForm";
 import MentorAccepted from "./Pages/MentorAccepted/MentorAccepted";
-import ProfilePage from "./ProfilePage";
+import ProfilePage from "./Pages/ProfilePage";
 import ProposalAccepted from "./Pages/ProposalAccepted/ProposalAccepted";
+import { getUserByFirebaseId } from "./API/Users";
 
 function App() {
-  const [currentUser, setCurrentUser] = useState(null);
+  const [firebaseToken, setFirebaseToken] = useState(null);
+  const [profile_user, setProfileUser] = useState({});
+  const [userModal, setUserModal] = useState(false);
+  const [confirmModal, setConfirmModal] = useState(false);
+
   useEffect(() => {
     const auth = getAuth();
     setPersistence(auth, browserLocalPersistence);
     auth.onAuthStateChanged((user) => {
-      setCurrentUser(user);
+      setFirebaseToken(user);
     });
   }, []);
 
-  console.log(currentUser);
-
-  // const navigate = useNavigate();
-
-  // const signIn = async () => {
-  //   try {
-  //     const user = await signInWithEmailAndPassword(auth, email, password);
-  //     setCurrentUser(user);
-
-  //     navigate("/profile");
-  //     console.log(user);
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
-  // };
-
-  // const signInGoogle = async () => {
-  //   try {
-  //     const userGoogle = await signInWithPopup(auth, googleProvider);
-  //     setCurrentUser(userGoogle);
-  //     // navigate("/profile");
-  //     console.log(userGoogle);
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
-  // };
-
-  // const logOut = async () => {
-  //   try {
-  //     await signOut(auth);
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
-  // };
-
-  // const [confirmModal, setConfirmModal] = useState(false);
+  useEffect(() => {
+    if (firebaseToken) {
+      const { uid } = firebaseToken;
+      console.log(uid);
+      getUserByFirebaseId(uid).then((user) => setProfileUser(user));
+    }
+  }, [firebaseToken]);
 
   return (
     <div>
       <BrowserRouter>
-        <NavBar setCurrentUser={setCurrentUser} currentUser={currentUser} />
+        <NavBar
+          setFirebaseToken={setFirebaseToken}
+          firebaseToken={firebaseToken}
+          profileUser={profile_user}
+        />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/how-it-works" element={<HowItWorks />} />
           <Route path="/our-impact" element={<OurImpact />} />
-          <Route path="/for-nonprofits" element={<ForNonProfits />} />
-          <Route path="/proposals-new" element={<ProposalForm />} />
-          <Route path="/mentors-new" element={<MentorForm />} />
-          <Route path="/projects" element={<MenteePage />} />
-          <Route path="/proposals" element={<MentorPage />} />
+          <Route
+            path="/for-nonprofits"
+            element={
+              <ForNonProfits
+                userModal={userModal}
+                setUserModal={setUserModal}
+                profileUser={profile_user}
+              />
+            }
+          />
+          <Route
+            path="/proposals-new"
+            element={
+              <ProposalForm
+             confirmModal={confirmModal}
+             setConfirmModal={setConfirmModal}
+                profileUser={profile_user}
+              />
+            }
+          />
+          <Route
+            path="/mentors-new"
+            element={
+              <MentorForm userModal={userModal} setUserModal={setUserModal} />
+            }
+          />
+          <Route
+            path="/projects"
+            element={
+              <MenteePage userModal={userModal} setUserModal={setUserModal} />
+            }
+          />
+          <Route
+            path="/proposals"
+            element={
+              <MentorPage userModal={userModal} setUserModal={setUserModal} />
+            }
+          />
           <Route path="/mentor-accepted" element={<MentorAccepted />} />
           <Route
             path="/profile"
-            element={<ProfilePage currentUser={currentUser} />}
+            element={
+              <ProfilePage
+                firebaseToken={firebaseToken}
+                profileUser={profile_user}
+                setProfileUser={setProfileUser}
+              />
+            }
           />
           <Route path="/proposal-accepted" element={<ProposalAccepted />} />
 

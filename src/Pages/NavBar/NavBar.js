@@ -1,23 +1,25 @@
+import { Link } from "react-router-dom";
 import "./NavBar.css";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import logo from "./DevImpactLogo.png";
-import SignUp from "../Components/SignUpForm.js";
+import logo from "./LogoNoSlogan.png";
+import SignUpForm from "../Components/SignUpForm.js";
 import LogInSignUpBtns from "../Components/LogInSignUpBtns";
 import { auth } from "../../Firebase";
 import { signOut } from "firebase/auth";
 import Image from "react-bootstrap/Image";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import NoUserModal from "../Components/NoUserModal";
+import ConfirmationModal from "../Components/ConfirmationModal";
 
 // import axios from "axios";
 
-function NavBar({ setCurrentUser, currentUser }) {
+function NavBar({ setFirebaseToken, firebaseToken, profileUser }) {
   const [logInModal, setLogInModal] = useState(false);
   const [signUpModal, setSignUpModal] = useState(false);
- 
 
   const navigate = useNavigate();
 
@@ -53,7 +55,7 @@ function NavBar({ setCurrentUser, currentUser }) {
   //   }
   const logOut = async () => {
     try {
-      await signOut(auth).then(setCurrentUser({}), setLogInModal(false));
+      await signOut(auth).then(setFirebaseToken({}), setLogInModal(false));
       navigate("/");
     } catch (err) {
       console.error(err);
@@ -61,37 +63,63 @@ function NavBar({ setCurrentUser, currentUser }) {
   };
 
   return (
-    <Navbar className="navbar" variant="dark" expand="lg">
+    <Navbar className="navbar px-4 d-flex justify-content-between shadow" variant="dark" expand="lg">
       <Container>
         <Navbar.Brand href="/">
+        <div className="logo-container">
           <Image className="logo" src={logo} alt="Dev Impact Logo" />
+          <span className="logo-name">Dev Impact</span>
+        </div>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <NavDropdown title="For Developers" id="basic-nav-dropdown">
-              <NavDropdown.Item href="/proposals">Mentors</NavDropdown.Item>
+          <Nav className="me-auto align-items-center gap-3">
+            <NavDropdown
+              className="navbar-link"
+              title="For Developers"
+              id="basic-nav-dropdown"
+            >
+              <Link
+                to="/proposals"
+                className="px-3 text-decoration-none text-dark fw-normal"
+              >
+                Mentors
+              </Link>
+
               <NavDropdown.Divider />
-              <NavDropdown.Item href="/projects">Mentees</NavDropdown.Item>
+
+              <Link
+                to="/projects"
+                className="px-3 text-decoration-none text-dark fw-normal"
+              >
+                Mentees
+              </Link>
             </NavDropdown>
             <Nav.Link href="/for-nonprofits">For Non Profits</Nav.Link>
             <Nav.Link href="/how-it-works">How it Works</Nav.Link>
             <Nav.Link href="/our-impact">Our Impact</Nav.Link>
-            {currentUser ? (
+            <br/> 
+            {firebaseToken ? (
               <div>
-                <h4>hello {currentUser.displayName}</h4>
+                <a href="/profile">
+                  <h5>
+                    {profileUser.first_name} {profileUser.last_name}
+                  </h5>
+                </a>
                 <button onClick={logOut}>Logout</button>
               </div>
             ) : (
               <div>
                 <LogInSignUpBtns
+                  firebaseToken={firebaseToken}
+                  setFirebaseToken={setFirebaseToken}
                   signUpModal={signUpModal}
                   setSignUpModal={setSignUpModal}
                   logInModal={logInModal}
                   setLogInModal={setLogInModal}
                   handleSignUp={handleSignUp}
                 />
-                <SignUp
+                <SignUpForm
                   open={signUpModal}
                   close={() => setSignUpModal(false)}
                 />

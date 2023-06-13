@@ -28,7 +28,7 @@ export default function New() {
   function handleSubmit(event) {
     event.preventDefault();
 
-    console.log(newProjectForm);
+    // console.log(newProjectForm, "newprojectForm mentorPage");
 
     // const acumulatedReview = {
     //   ...newProjectForm,
@@ -46,8 +46,8 @@ export default function New() {
         <h1>Welcome Mentors!</h1>
         <h4>Fill out our 5-minute project proposal form...</h4>
       </header>
-      <div className="grid-container">
-        <div className="form-container grid-item">
+      <div className="grid-container-mentor">
+        <div className="form-container grid-item-mentor">
           <form className="upsert-form" onSubmit={handleSubmit}>
             <div className="form-field">
               <label htmlFor="technologies">Project technologies to use:</label>
@@ -97,7 +97,7 @@ export default function New() {
             <input className="submit-button" type="submit" />
           </form>
         </div>
-        <div className="grid-item">
+        <div className="grid-item-mentor">
           <img src={survey} alt="surveyIcon" />
         </div>
       </div>

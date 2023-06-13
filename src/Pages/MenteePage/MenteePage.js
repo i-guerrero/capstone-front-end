@@ -1,29 +1,41 @@
+import React, { useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
-import { useEffect, useState } from "react";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { getAllProjects } from "../../API/Project";
-import ConfirmationModal from "../Components/ConfirmationModal.js";
+import NoUserModal from "../Components/NoUserModal";
+import ConfirmationModal from "../Components/ConfirmationModal";
 import "./MenteePage.css";
 // import axios from "axios";
 
 export default function MenteePage() {
   // const navigate = useNavigate();
   const [projects, setProjects] = useState([]);
+  const [filteredProjects, setFilteredProjects] = useState([]);
   const [confirmModal, setConfirmModal] = useState(false);
 
 
   useEffect(() => {
     getAllProjects().then((projectsList) => {
       setProjects(projectsList);
+      setFilteredProjects(projectsList);
     });
   }, []);
+
+  const handleFilterChange = (event) => {
+    const searchValue = event.target.value.toLowerCase();
+    const filteredData = projects.filter((project) =>
+      project.technologies.toLowerCase().includes(searchValue)
+    );
+    setFilteredProjects(filteredData);
+  };
+
 
 
   function handleConfirm() {
     setConfirmModal(true);
   }
 
-  console.log(confirmModal);
+  // console.log(confirmModal, "confirmModal in Mentee page");
 
   const columns = [
     {
@@ -39,6 +51,7 @@ export default function MenteePage() {
       grow: 1,
       wrap: true,
       center: true,
+      cell: (row) => <span>{row.technologies}</span>,
     },
     {
       name: "number of developers",
@@ -83,12 +96,17 @@ export default function MenteePage() {
   return (
     <div className="home">
       <article>
-        See all the Organizations you can colaborate with now!
+        See all these Non-Profits Organizations with which you can collaborate
+        now!
       </article>
       <br />
       <div className="data-table-container">
-       
-        <DataTable columns={columns} data={projects} />
+        <input
+          type="text"
+          placeholder="Filter Requirements / Technologies"
+          onChange={handleFilterChange}
+        />
+        <DataTable columns={columns} data={filteredProjects} />
       </div>
     </div>
   );

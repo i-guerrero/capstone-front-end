@@ -80,7 +80,7 @@ textarea {
   }
 } */
 
-.grid-container {
+.grid-container-mentor {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
@@ -89,7 +89,7 @@ textarea {
   /* height:fit-content; */
 }
 
-.grid-item img {
+.grid-item-mentor img {
   height: 80%;
   width: 80%;
   /* text-align: center; */
