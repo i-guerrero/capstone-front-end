@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { getAllProjects } from "../../API/Project";
-import NoUserModal from "../Components/NoUserModal";
+// import NoUserModal from "../Components/NoUserModal";
 import ConfirmationModal from "../Components/ConfirmationModal";
 import "./MenteePage.css";
 // import axios from "axios";
@@ -12,7 +12,6 @@ export default function MenteePage() {
   const [projects, setProjects] = useState([]);
   const [filteredProjects, setFilteredProjects] = useState([]);
   const [confirmModal, setConfirmModal] = useState(false);
-
 
   useEffect(() => {
     getAllProjects().then((projectsList) => {
@@ -28,8 +27,6 @@ export default function MenteePage() {
     );
     setFilteredProjects(filteredData);
   };
-
-
 
   function handleConfirm() {
     setConfirmModal(true);
@@ -70,23 +67,23 @@ export default function MenteePage() {
     {
       name: "Status",
       cell: () => (
-        <>    <button className="join-btn" onClick={handleConfirm}>
-          Join This Project{" "}
-          <span className="fa-solid fa-up-right-from-square  fa-2xs"></span>
-        </button>
-        {confirmModal ? (
-          <ConfirmationModal
-            confirmModal={confirmModal}
-            closeModal={() => {
-              setConfirmModal(false);
-            }}
-          >
-            <div>Modal is open</div>
-          </ConfirmationModal>
-        ) : null}
+        <>
+          {" "}
+          <button className="join-btn" onClick={handleConfirm}>
+            Join This Project{" "}
+            <span className="fa-solid fa-up-right-from-square  fa-2xs"></span>
+          </button>
+          {confirmModal ? (
+            <ConfirmationModal
+              confirmModal={confirmModal}
+              closeModal={() => {
+                setConfirmModal(false);
+              }}
+            >
+              <div>Modal is open</div>
+            </ConfirmationModal>
+          ) : null}
         </>
-    
-        
       ),
       grow: 1,
       center: true,
