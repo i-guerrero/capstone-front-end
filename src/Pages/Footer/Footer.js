@@ -1,16 +1,12 @@
 import React from "react";
 import "./Footer.css";
 
-import instagramLogo from "./icons-instagram.jpeg";
-import twitterLogo from "./twitter-icon-design.jpeg";
-import youtubeLogo from "./youtube-icon.jpeg";
-import { FaInstagram } from "react-icons/fa";
-import { RiYoutubeLine } from "react-icons/ri";
-import { AiFillTwitterSquare } from "react-icons/ai";
 
 import { FaInstagram } from "react-icons/fa";
 import { RiYoutubeLine } from "react-icons/ri";
 import { AiFillTwitterSquare } from "react-icons/ai";
+
+
 
 export default function Footer() {
   return (
