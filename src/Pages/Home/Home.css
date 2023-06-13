@@ -25,15 +25,13 @@
   padding: 40px 80px;
   /* Aumenta los valores de padding para hacer los botones más grandes */
   border-radius: 5px;
+  font-weight:bold;
   font-size: 18px;
   font-weight:bold;
   text-align: center;
   text-decoration: none;
   color: white;
   background-color: rgb(37, 150, 190);
-  /* rgb(37, 150, 190); 
-  #2596be
-  */
   border: none;
   /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); */
   transition: all 0.2s ease-in-out;
@@ -58,6 +56,24 @@
 }
 
 .grid-item img {
-  width: 100%;
-  height: 100%
+  
+    width: 100%;
+    height: 100%
+}
+
+.confirm-modal {
+  /* display:flex;
+      justify-content: space-evenly;
+      align-items: flex-start; */
+  height: fit-content;
+  padding: 20px;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  background-color: rgba(119, 187, 223, 0.87);
+  /* padding-left: 50px;
+    padding-right: 50px; */
+  z-index: 1000;
+  top: 30%;
+  left: 50%;
+  width: fit-content;
 }

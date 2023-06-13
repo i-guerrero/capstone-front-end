@@ -1,10 +1,11 @@
 .data-table-container {
   margin: auto;
-  width: 80%
+  width: 80%;
+  padding-bottom: 100px;
 }
 
-.sc-ePzlA-D{
- border: 2px solid #292e74;
+.sc-ePzlA-D {
+  border: 2px solid #292e74;
 }
 
 .rdt_TableHeadRow {
@@ -32,6 +33,6 @@
 
 .reject:hover {
   transform: scale(1.15);
-  background-color: #bf3928; 
+  background-color: #bf3928;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }

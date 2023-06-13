@@ -1,19 +1,17 @@
 import "./Home.css";
-import { useState } from "react";
+// import { useState } from "react";
 // import welcomeF from "./welcomeF.png";
 import devteam from "./undraw_engineering_team_a7n2.svg";
 import { useNavigate } from "react-router-dom";
 
-
 export default function Home() {
   const navigate = useNavigate();
-
 
   return (
     <div className="home">
       <div className="grid-container">
         <div className="grid-item">
-          <span id="title">DEV IMPACT</span>
+          <span id="title"></span>
           <h1>"The greatest impact we have is when we come together."</h1>
           <h4>
             We are a community of developers of all stages and nonprofits
@@ -65,7 +63,6 @@ export default function Home() {
           ></span>
         </div>
       </div>
-     
     </div>
   );
 }

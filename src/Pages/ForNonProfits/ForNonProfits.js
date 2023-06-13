@@ -1,8 +1,27 @@
 import "./ForNonProfits.css";
-import { Link } from "react-router-dom";
-
+// import teamworkImg from "./brooke-cagle--uHVRvDr7pg-unsplash.jpeg";
+// import pairLogo from "./undraw_pair_programming_re_or4x.svg";
+import NoUserModal from "../Components/NoUserModal";
+import { useNavigate } from "react-router-dom";
 import pairLogo from "./undraw_pair_programming_re_or4x.svg";
-export default function ForNonProfits() {
+
+
+
+export default function ForNonProfits({
+  profileUser,
+  setUserModal,
+  userModal,
+}) {
+  const navigate = useNavigate();
+
+  function handleGetStarted() {
+    if (!profileUser.user_type) {
+      setUserModal(true);
+    } else if (profileUser.user_type === "Nonprofit") {
+      navigate("/proposals-new");
+    }
+  }
+
   return (
     <div className="home bg-light">
       <div className="container">
@@ -26,9 +45,13 @@ export default function ForNonProfits() {
         </div>
       </div>
       <div className="contact-container">
-        <Link to="/proposals-new">
-          <button className="get-started">Get Started</button>
-        </Link>
+        <button onClick={handleGetStarted} className="get-started">
+          Get Started
+        </button>
+        <NoUserModal
+          userModal={userModal}
+          closeModal={() => setUserModal(false)}
+        />
       </div>
     </div>
   );
