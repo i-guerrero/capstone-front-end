@@ -2,10 +2,10 @@ import DataTable from "react-data-table-component";
 import { useEffect, useState } from "react";
 import { getAllProposals } from "../../API/Proposal";
 import { useNavigate } from "react-router-dom";
-import { getAuth } from  "firebase/auth";
+import { getAuth } from "firebase/auth";
 import "./MentorPage.css";
-import NoUserModal from "../Components/NoUserModal";
-import ConfirmationModal from "../Components/ConfirmationModal"; 
+// import NoUserModal from "../Components/NoUserModal";
+// import ConfirmationModal from "../Components/ConfirmationModal";
 import axios from "axios";
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
@@ -58,13 +58,13 @@ export default function MentorPage() {
           <button
             className="join-btn"
             onClick={() => {
-           const auth = getAuth();
-           const currentUser = auth.currentUser;
-          if(currentUser) {
-            axios.post()
-            // make axios.post request to /proposals/id/mentor route and make sure the object you are posting with has the key value pair of "firebaseId" === currentUser.user.firebase_uid
-            // console.log(currentUser);
-          }
+              const auth = getAuth();
+              const currentUser = auth.currentUser;
+              if (currentUser) {
+                axios.post();
+                // make axios.post request to /proposals/id/mentor route and make sure the object you are posting with has the key value pair of "firebaseId" === currentUser.user.firebase_uid
+                // console.log(currentUser);
+              }
             }}
           >
             Approve

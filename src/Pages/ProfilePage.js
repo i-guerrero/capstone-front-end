@@ -1,14 +1,13 @@
 import React from "react";
 // import axios from "axios";
 import "./ProfilePage.css";
-import ConfirmationModal from "./Components/ConfirmationModal";
+// import ConfirmationModal from "./Components/ConfirmationModal";
 
 export default function ProfilePage({ firebaseToken, profileUser }) {
   if (!firebaseToken) return null;
 
   return (
     <>
-
       <div className="profile">
         <img
           src={profileUser.profile_img}
