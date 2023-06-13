@@ -12,8 +12,8 @@ import { signOut } from "firebase/auth";
 import Image from "react-bootstrap/Image";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import NoUserModal from "../Components/NoUserModal";
-import ConfirmationModal from "../Components/ConfirmationModal";
+// import NoUserModal from "../Components/NoUserModal";
+// import ConfirmationModal from "../Components/ConfirmationModal";
 
 // import axios from "axios";
 
@@ -63,13 +63,17 @@ function NavBar({ setFirebaseToken, firebaseToken, profileUser }) {
   };
 
   return (
-    <Navbar className="navbar px-4 d-flex justify-content-between shadow" variant="dark" expand="lg">
+    <Navbar
+      className="navbar px-4 d-flex justify-content-between shadow"
+      variant="dark"
+      expand="lg"
+    >
       <Container>
         <Navbar.Brand href="/">
-        <div className="logo-container">
-          <Image className="logo" src={logo} alt="Dev Impact Logo" />
-          <span className="logo-name">Dev Impact</span>
-        </div>
+          <div className="logo-container">
+            <Image className="logo" src={logo} alt="Dev Impact Logo" />
+            <span className="logo-name">Dev Impact</span>
+          </div>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -98,7 +102,7 @@ function NavBar({ setFirebaseToken, firebaseToken, profileUser }) {
             <Nav.Link href="/for-nonprofits">For Non Profits</Nav.Link>
             <Nav.Link href="/how-it-works">How it Works</Nav.Link>
             <Nav.Link href="/our-impact">Our Impact</Nav.Link>
-            <br/> 
+            <br />
             {firebaseToken ? (
               <div>
                 <a href="/profile">
