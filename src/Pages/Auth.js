@@ -1,12 +1,9 @@
 import { auth, googleProvider } from "../Firebase";
-import {
-  signInWithEmailAndPassword,
-  signInWithPopup
-} from "firebase/auth";
+import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Auth = ({ setCurrentUser,closeModal }) => {
+const Auth = ({ setFirebaseToken, closeModal }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -14,9 +11,7 @@ const Auth = ({ setCurrentUser,closeModal }) => {
   const signIn = async () => {
     try {
       const user = await signInWithEmailAndPassword(auth, email, password);
-      setCurrentUser(user);
-      navigate("/profile");
-      console.log(user);
+      setFirebaseToken(user).then(navigate("/profile"));
     } catch (err) {
       console.error(err);
     }
@@ -25,10 +20,9 @@ const Auth = ({ setCurrentUser,closeModal }) => {
   const signInGoogle = async () => {
     try {
       const userGoogle = await signInWithPopup(auth, googleProvider);
-      setCurrentUser(userGoogle);
-  
+      setFirebaseToken(userGoogle);
+
       navigate("/profile");
-      console.log(userGoogle);
     } catch (err) {
       console.error(err);
     }
@@ -44,11 +38,12 @@ const Auth = ({ setCurrentUser,closeModal }) => {
 
   return (
     <div className="Log-In">
-            
       <div className="email">
-      <button className="redx" onClick={closeModal}>X</button>
+        <button className="redx" onClick={closeModal}>
+          X
+        </button>
         <br /> <br />
-       <h4>Welcome Back!</h4>
+        <h4>Welcome Back!</h4>
         <label htmlFor="email">Email</label>
         <input
           id="email"
@@ -64,11 +59,15 @@ const Auth = ({ setCurrentUser,closeModal }) => {
           onChange={(e) => setPassword(e.target.value)}
         />
         <br /> <br />
-        <button className="btn-log-in" onClick={signIn}> Log In </button>
+        <button className="btn-log-in" onClick={signIn}>
+          {" "}
+          Log In{" "}
+        </button>
         <br /> <br />
-        <button className="btn-log-in" onClick={signInGoogle}>Gmail Log In</button>
+        <button className="btn-log-in" onClick={signInGoogle}>
+          Gmail Log In
+        </button>
       </div>
-     
     </div>
   );
 };

@@ -6,7 +6,7 @@ import { Auth } from "../Auth";
 export default function LogInSignUpBtns({
   logInModal,
   setLogInModal,
-  setCurrentUser,
+ setFirebaseToken,
   handleSignUp,
 }) {
   function handleLogIn() {
@@ -18,15 +18,15 @@ export default function LogInSignUpBtns({
       <button className="sign-up" onClick={handleSignUp}>
         Join Dev Impact
       </button>
-      <button className="sign-up" onClick={handleLogIn}>
+      <button className="already-member" onClick={handleLogIn}>
         Already A Member?
       </button>
       {logInModal ? (
         <>
-          <LogIn openModal={logInModal} setCurrentUser={setCurrentUser}>
+          <LogIn openModal={logInModal} setFirebaseToken={setFirebaseToken}>
             <Auth
               closeModal={() => setLogInModal(false)}
-              setCurrentUser={setCurrentUser}
+              setFirebaseToken={setFirebaseToken}
             />
           </LogIn>
         </>

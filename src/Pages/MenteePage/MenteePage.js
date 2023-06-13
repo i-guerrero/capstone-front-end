@@ -2,7 +2,8 @@ import DataTable from "react-data-table-component";
 import { useEffect, useState } from "react";
 // import { useNavigate } from "react-router-dom";
 import { getAllProjects } from "../../API/Project";
-import ConfirmationModal from "../Components/ConfirmationModal.js";
+import NoUserModal from "../Components/NoUserModal";
+import ConfirmationModal from "../Components/ConfirmationModal";
 import "./MenteePage.css";
 // import axios from "axios";
 
@@ -23,7 +24,7 @@ export default function MenteePage() {
     setConfirmModal(true);
   }
 
-  console.log(confirmModal);
+  // console.log(confirmModal, "confirmModal in Mentee page");
 
   const columns = [
     {

@@ -4,6 +4,8 @@ import { getAllProposals } from "../../API/Proposal";
 import { useNavigate } from "react-router-dom";
 import { getAuth } from  "firebase/auth";
 import "./MentorPage.css";
+import NoUserModal from "../Components/NoUserModal";
+import ConfirmationModal from "../Components/ConfirmationModal"; 
 import axios from "axios";
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
@@ -19,7 +21,7 @@ export default function MentorPage() {
   }, []);
 
   function handleReject(e) {
-    console.log(e.target.dataset);
+    // console.log(e.target.dataset, "log reject e.target.dataset");
     axios
       .delete(`${BASE_URL}/proposals/${e.target.dataset.proposalId}`)
       .then(() => {
@@ -61,7 +63,7 @@ export default function MentorPage() {
           if(currentUser) {
             axios.post()
             // make axios.post request to /proposals/id/mentor route and make sure the object you are posting with has the key value pair of "firebaseId" === currentUser.user.firebase_uid
-            console.log(currentUser);
+            // console.log(currentUser);
           }
             }}
           >

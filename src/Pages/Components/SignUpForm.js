@@ -40,12 +40,12 @@ export default function SignUp({ open, close }) {
     company: "",
     city: "",
     country: "",
-    user_name: "",
+    profile_img: "",
+    firebase_uid: "",
     user_pw: "",
     user_type: "",
     linkedin: "",
   });
-
   const navigate = useNavigate();
 
   if (!open) return null;
@@ -57,9 +57,11 @@ export default function SignUp({ open, close }) {
       newUser.email,
       newUser.user_pw
     );
-    console.log(firebaseUser);
-    await axios.post(`${API}/users`, newUser).then(() => navigate("/profile"));
-    close();
+    const data = { ...newUser, firebase_uid: firebaseUser.user.uid };
+    await axios
+      .post(`${API}/users`, data)
+      .then(() => navigate("/profile"))
+      .then(close());
   }
 
   function handleChange(e) {
@@ -126,12 +128,12 @@ export default function SignUp({ open, close }) {
               className="input"
               onChange={(e) => handleChange(e)}
             />
-            <label htmlFor="user_name">User Name&nbsp;</label>
+            <label htmlFor="profile_img">Add Profile Image&nbsp;</label>
             <input
               type="text"
               required
-              value={newUser.user_name}
-              name="user_name"
+              value={newUser.profile_img}
+              name="profile_img"
               className="input"
               onChange={(e) => handleChange(e)}
             />

@@ -28,7 +28,7 @@ export default function New() {
   function handleSubmit(event) {
     event.preventDefault();
 
-    console.log(newProjectForm);
+    // console.log(newProjectForm, "newprojectForm mentorPage");
 
     // const acumulatedReview = {
     //   ...newProjectForm,
