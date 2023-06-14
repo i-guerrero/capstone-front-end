@@ -13,7 +13,6 @@ export default function MenteePage() {
   const [filteredProjects, setFilteredProjects] = useState([]);
   const [confirmModal, setConfirmModal] = useState(false);
 
-
   useEffect(() => {
     getAllProjects().then((projectsList) => {
       setProjects(projectsList);
@@ -28,8 +27,6 @@ export default function MenteePage() {
     );
     setFilteredProjects(filteredData);
   };
-
-
 
   function handleConfirm() {
     setConfirmModal(true);
@@ -70,23 +67,23 @@ export default function MenteePage() {
     {
       name: "Status",
       cell: () => (
-        <>    <button className="join-btn" onClick={handleConfirm}>
-          Join This Project{" "}
-          <span className="fa-solid fa-up-right-from-square  fa-2xs"></span>
-        </button>
-        {confirmModal ? (
-          <ConfirmationModal
-            confirmModal={confirmModal}
-            closeModal={() => {
-              setConfirmModal(false);
-            }}
-          >
-            <div>Modal is open</div>
-          </ConfirmationModal>
-        ) : null}
+        <>
+          {" "}
+          <button className="join-btn" onClick={handleConfirm}>
+            Join This Project{" "}
+            <span className="fa-solid fa-up-right-from-square  fa-2xs"></span>
+          </button>
+          {confirmModal ? (
+            <ConfirmationModal
+              confirmModal={confirmModal}
+              closeModal={() => {
+                setConfirmModal(false);
+              }}
+            >
+              <div>Modal is open</div>
+            </ConfirmationModal>
+          ) : null}
         </>
-    
-        
       ),
       grow: 1,
       center: true,

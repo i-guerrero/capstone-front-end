@@ -5,8 +5,6 @@ import NoUserModal from "../Components/NoUserModal";
 import { useNavigate } from "react-router-dom";
 import pairLogo from "./undraw_pair_programming_re_or4x.svg";
 
-
-
 export default function ForNonProfits({
   profileUser,
   setUserModal,
@@ -24,14 +22,14 @@ export default function ForNonProfits({
 
   return (
     <div className="home bg-light">
-      <div className="container">
+      <div className="container h-100 d-flex flex-column justify-content-center align-items-center">
         <div className="grid-container">
-          <div className="grid-item d-flex flex-column gap-3">
+          <div className="d-flex flex-column gap-3 justify-content-center align-items-center ">
             <span id="title"></span>
             <h1>
               {" "}
-              "Keep your eyes on the mission. 
-              We handle the rest with precision."
+              "Keep your eyes on the mission. We handle the rest with
+              precision."
             </h1>
             <h4 className="fw-normal">
               We take vetted volunteers and build a team to cater your specific
@@ -43,15 +41,15 @@ export default function ForNonProfits({
             <img src={pairLogo} alt="pair-prog-logo" />
           </div>
         </div>
-      </div>
-      <div className="contact-container">
-        <button onClick={handleGetStarted} className="get-started">
-          Get Started
-        </button>
-        <NoUserModal
-          userModal={userModal}
-          closeModal={() => setUserModal(false)}
-        />
+        <div className="contact-container">
+          <button onClick={handleGetStarted} className="get-started">
+            Get Started
+          </button>
+          <NoUserModal
+            userModal={userModal}
+            closeModal={() => setUserModal(false)}
+          />
+        </div>
       </div>
     </div>
   );

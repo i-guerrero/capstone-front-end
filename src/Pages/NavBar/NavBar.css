@@ -46,6 +46,7 @@
 
 .sign-up,
 .already-member {
+  width: 200px;
   padding: 12px 16px;
   /* Ajusta los valores de padding según tus preferencias */
   border: 2px solid transparent;
