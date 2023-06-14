@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "./NavBar.css";
-import Container from "react-bootstrap/Container";
+// import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
@@ -64,7 +64,6 @@ function NavBar({ setFirebaseToken, firebaseToken, profileUser }) {
 
   return (
     <Navbar
-
       className="navbar px-5 d-flex justify-content-between shadow"
       variant="dark"
       expand="lg"
@@ -79,9 +78,6 @@ function NavBar({ setFirebaseToken, firebaseToken, profileUser }) {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="w-100 justify-content-between align-items-center gap-3">
           <div className="d-flex gap-4 align-items-center ms-auto">
-
-     
-
             <NavDropdown
               className="navbar-link"
               title="For Developers"
@@ -103,7 +99,6 @@ function NavBar({ setFirebaseToken, firebaseToken, profileUser }) {
                 Mentees
               </Link>
             </NavDropdown>
-
 
             <Link className="navbar-link" to="/for-nonprofits">
               For Non Profits
