@@ -23,7 +23,7 @@
   padding: 40px 80px;
   /* Aumenta los valores de padding para hacer los botones más grandes */
   border-radius: 5px;
-  font-size: 18px;
+  font-size: 24px;
   font-weight:bold;
   text-align: center;
   text-decoration: none;
@@ -32,7 +32,7 @@
   border: none;
   /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); */
   transition: all 0.2s ease-in-out;
-  margin-top: 60px;
+  margin-top: 25px;
 }
 
 .get-started:hover {
@@ -77,9 +77,6 @@
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 
-.contact-container {
-  margin: auto;
-}
 
 /* =0=-=-=-== */
 #title {
@@ -92,7 +89,7 @@
   padding: 40px 80px;
   /* Aumenta los valores de padding para hacer los botones más grandes */
   border-radius: 5px;
-  font-size: 18px;
+  font-size: 24px;
   font-weight:bold;
   text-align: center;
   text-decoration: none;

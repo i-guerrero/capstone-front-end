@@ -1,5 +1,5 @@
 .home {
-  height: calc(100vh - 108px);
+  height: calc(100vh - 82px);
   background: scroll;
 }
 
@@ -12,7 +12,7 @@
 }
 .buttons-container {
   display: flex;
-  justify-content: space-evenly;
+  gap: 36px
 }
 
 #title {
@@ -26,7 +26,7 @@
   /* Aumenta los valores de padding para hacer los botones más grandes */
   border-radius: 5px;
   font-weight:bold;
-  font-size: 18px;
+  font-size: 24px;
   font-weight:bold;
   text-align: center;
   text-decoration: none;
