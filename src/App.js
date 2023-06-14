@@ -38,7 +38,9 @@ function App() {
     if (firebaseToken) {
       const { uid } = firebaseToken;
       console.log(uid);
-      getUserByFirebaseId(uid).then((user) => setProfileUser(user));
+      getUserByFirebaseId(uid).then((user) => 
+        setProfileUser(user)
+      );
     }
   }, [firebaseToken]);
 
@@ -68,8 +70,8 @@ function App() {
             path="/proposals-new"
             element={
               <ProposalForm
-             confirmModal={confirmModal}
-             setConfirmModal={setConfirmModal}
+                confirmModal={confirmModal}
+                setConfirmModal={setConfirmModal}
                 profileUser={profile_user}
               />
             }

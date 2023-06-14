@@ -1,17 +1,16 @@
 import { auth, googleProvider } from "../Firebase";
 import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 const Auth = ({ setFirebaseToken, closeModal }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate();
 
   const signIn = async () => {
     try {
       const user = await signInWithEmailAndPassword(auth, email, password);
-      setFirebaseToken(user).then(navigate("/profile"));
+      // setFirebaseToken(user)  <== not needed for now
+      window.location = "/profile";
     } catch (err) {
       console.error(err);
     }
@@ -21,8 +20,6 @@ const Auth = ({ setFirebaseToken, closeModal }) => {
     try {
       const userGoogle = await signInWithPopup(auth, googleProvider);
       setFirebaseToken(userGoogle);
-
-      navigate("/profile");
     } catch (err) {
       console.error(err);
     }
