@@ -1,14 +1,25 @@
 import React from "react";
 // import axios from "axios";
+import { useEffect, useState } from "react";
 import "./ProfilePage.css";
 import ConfirmationModal from "./Components/ConfirmationModal";
+import { getProposalByUserId } from "../API/Proposal";
 
 export default function ProfilePage({ firebaseToken, profileUser }) {
+  const [proposals, setProposals] = useState([]);
+
+  useEffect(() => {
+    getProposalByUserId(profileUser.id).then((userProposals) =>
+      setProposals(userProposals)
+    );
+  },[profileUser]);
+
+  console.log(proposals, "log in profile Page for Props")
+
   if (!firebaseToken) return null;
 
   return (
     <>
-
       <div className="profile">
         <img
           src={profileUser.profile_img}

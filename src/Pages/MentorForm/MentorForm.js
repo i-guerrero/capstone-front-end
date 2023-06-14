@@ -38,6 +38,9 @@ export default function New() {
     createNewProjects(newProjectForm).then((newProjectFormEnd) => {
       navigate("/projects");
     });
+
+    
+
   }
 
   return (

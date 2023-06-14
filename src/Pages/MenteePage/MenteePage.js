@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { getAllProjects } from "../../API/Project";
-import NoUserModal from "../Components/NoUserModal";
+// import NoUserModal from "../Components/NoUserModal";
 import ConfirmationModal from "../Components/ConfirmationModal";
 import "./MenteePage.css";
 // import axios from "axios";
