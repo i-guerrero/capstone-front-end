@@ -12,8 +12,8 @@ import { signOut } from "firebase/auth";
 import Image from "react-bootstrap/Image";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import NoUserModal from "../Components/NoUserModal";
-import ConfirmationModal from "../Components/ConfirmationModal";
+// import NoUserModal from "../Components/NoUserModal";
+// import ConfirmationModal from "../Components/ConfirmationModal";
 
 // import axios from "axios";
 
@@ -64,6 +64,7 @@ function NavBar({ setFirebaseToken, firebaseToken, profileUser }) {
 
   return (
     <Navbar
+
       className="navbar px-5 d-flex justify-content-between shadow"
       variant="dark"
       expand="lg"
@@ -78,6 +79,9 @@ function NavBar({ setFirebaseToken, firebaseToken, profileUser }) {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="w-100 justify-content-between align-items-center gap-3">
           <div className="d-flex gap-4 align-items-center ms-auto">
+
+     
+
             <NavDropdown
               className="navbar-link"
               title="For Developers"
@@ -99,6 +103,7 @@ function NavBar({ setFirebaseToken, firebaseToken, profileUser }) {
                 Mentees
               </Link>
             </NavDropdown>
+
 
             <Link className="navbar-link" to="/for-nonprofits">
               For Non Profits
