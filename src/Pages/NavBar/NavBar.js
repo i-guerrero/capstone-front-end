@@ -63,17 +63,21 @@ function NavBar({ setFirebaseToken, firebaseToken, profileUser }) {
   };
 
   return (
-    <Navbar className="navbar px-4 d-flex justify-content-between shadow" variant="dark" expand="lg">
-      <Container>
-        <Navbar.Brand href="/">
+    <Navbar
+      className="navbar px-5 d-flex justify-content-between shadow"
+      variant="dark"
+      expand="lg"
+    >
+      <Navbar.Brand href="/">
         <div className="logo-container">
           <Image className="logo" src={logo} alt="Dev Impact Logo" />
           <span className="logo-name">Dev Impact</span>
         </div>
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto align-items-center gap-3">
+      </Navbar.Brand>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="w-100 justify-content-between align-items-center gap-3">
+          <div className="d-flex gap-4 align-items-center ms-auto">
             <NavDropdown
               className="navbar-link"
               title="For Developers"
@@ -95,39 +99,46 @@ function NavBar({ setFirebaseToken, firebaseToken, profileUser }) {
                 Mentees
               </Link>
             </NavDropdown>
-            <Nav.Link href="/for-nonprofits">For Non Profits</Nav.Link>
-            <Nav.Link href="/how-it-works">How it Works</Nav.Link>
-            <Nav.Link href="/our-impact">Our Impact</Nav.Link>
-            <br/> 
-            {firebaseToken ? (
-              <div>
-                <a href="/profile">
-                  <h5>
-                    {profileUser.first_name} {profileUser.last_name}
-                  </h5>
-                </a>
-                <button onClick={logOut}>Logout</button>
-              </div>
-            ) : (
-              <div>
-                <LogInSignUpBtns
-                  firebaseToken={firebaseToken}
-                  setFirebaseToken={setFirebaseToken}
-                  signUpModal={signUpModal}
-                  setSignUpModal={setSignUpModal}
-                  logInModal={logInModal}
-                  setLogInModal={setLogInModal}
-                  handleSignUp={handleSignUp}
-                />
-                <SignUpForm
-                  open={signUpModal}
-                  close={() => setSignUpModal(false)}
-                />
-              </div>
-            )}
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
+
+            <Link className="navbar-link" to="/for-nonprofits">
+              For Non Profits
+            </Link>
+            <Link className="navbar-link" to="/how-it-works">
+              How it Works
+            </Link>
+            <Link className="navbar-link" to="/our-impact">
+              Our Impact
+            </Link>
+          </div>
+          <br />
+          {firebaseToken ? (
+            <div>
+              <a href="/profile">
+                <h5>
+                  {profileUser.first_name} {profileUser.last_name}
+                </h5>
+              </a>
+              <button onClick={logOut}>Logout</button>
+            </div>
+          ) : (
+            <div>
+              <LogInSignUpBtns
+                firebaseToken={firebaseToken}
+                setFirebaseToken={setFirebaseToken}
+                signUpModal={signUpModal}
+                setSignUpModal={setSignUpModal}
+                logInModal={logInModal}
+                setLogInModal={setLogInModal}
+                handleSignUp={handleSignUp}
+              />
+              <SignUpForm
+                open={signUpModal}
+                close={() => setSignUpModal(false)}
+              />
+            </div>
+          )}
+        </Nav>
+      </Navbar.Collapse>
     </Navbar>
   );
 }

@@ -6,7 +6,7 @@ import { Auth } from "../Auth";
 export default function LogInSignUpBtns({
   logInModal,
   setLogInModal,
- setFirebaseToken,
+  setFirebaseToken,
   handleSignUp,
 }) {
   function handleLogIn() {
@@ -14,7 +14,9 @@ export default function LogInSignUpBtns({
   }
 
   return (
-    <>
+    <div className="d-flex align-items-center gap-3">
+      <div className="divider" />
+
       <button className="sign-up" onClick={handleSignUp}>
         Join Dev Impact
       </button>
@@ -31,6 +33,6 @@ export default function LogInSignUpBtns({
           </LogIn>
         </>
       ) : null}
-    </>
+    </div>
   );
 }

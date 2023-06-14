@@ -1,14 +1,14 @@
 import "./Home.css";
 // import { useState } from "react";
 // import welcomeF from "./welcomeF.png";
-import devteam from "./undraw_engineering_team_a7n2.svg";
+import devteam from "./undraw_engineering_team_a7n2 (1).svg";
 import { useNavigate } from "react-router-dom";
 
 export default function Home() {
   const navigate = useNavigate();
 
   return (
-    <div className="home">
+    <div className="home container d-flex flex-column justify-content-center align-items-center">
       <div className="grid-container">
         <div className="grid-item">
           <span id="title"></span>
@@ -31,10 +31,10 @@ export default function Home() {
           className="home-button"
         >
           Join Mentors{" "}
-          <span
+          {/* <span
             className="fa-solid fa-up-right-from-square fa-2xs"
             style={{ color: "#292e74" }}
-          ></span>
+          ></span> */}
         </div>
         <div
           onClick={() => {
@@ -44,10 +44,10 @@ export default function Home() {
           className="home-button"
         >
           Join Mentees{" "}
-          <span
+          {/* <span
             className="fa-solid fa-up-right-from-square  fa-2xs"
             style={{ color: "#292e74" }}
-          ></span>
+          ></span> */}
         </div>
         <div
           onClick={() => {
@@ -57,10 +57,10 @@ export default function Home() {
           className="home-button"
         >
           Join Non-profits{" "}
-          <span
+          {/* <span
             className="fa-solid fa-up-right-from-square  fa-2xs"
             style={{ color: "#292e74" }}
-          ></span>
+          ></span> */}
         </div>
       </div>
     </div>
