@@ -24,6 +24,15 @@ export function createNewProposals(proposals) {
 }
 
 
+
+export function getProposalByUserId( userId ) {
+  const request = fetch(`${BASE_URL}/users/${userId}/proposals`)
+    .then((response) => response.json())
+    .then((proposals) => proposals);
+    return request;
+}
+
+
 // export function getOneproposals(id) {
 //   const request = fetch(`${BASE_URL}/${id}`)
 //     .then((response) => response.json())

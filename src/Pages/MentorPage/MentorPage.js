@@ -4,8 +4,8 @@ import { getAllProposals } from "../../API/Proposal";
 import { useNavigate } from "react-router-dom";
 import { getAuth } from "firebase/auth";
 import "./MentorPage.css";
-import NoUserModal from "../Components/NoUserModal";
-import ConfirmationModal from "../Components/ConfirmationModal";
+// import NoUserModal from "../Components/NoUserModal";
+// import ConfirmationModal from "../Components/ConfirmationModal";
 import axios from "axios";
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 

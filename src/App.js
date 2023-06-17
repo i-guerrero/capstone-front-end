@@ -37,11 +37,14 @@ function App() {
   useEffect(() => {
     if (firebaseToken) {
       const { uid } = firebaseToken;
-      console.log(uid);
-      getUserByFirebaseId(uid).then((user) => setProfileUser(user));
+      // console.log(uid);
+      getUserByFirebaseId(uid).then((user) => 
+        setProfileUser(user)
+      );
     }
   }, [firebaseToken]);
 
+  console.log(profile_user, "app.js console.log")
   return (
     <div>
       <BrowserRouter>
@@ -68,8 +71,8 @@ function App() {
             path="/proposals-new"
             element={
               <ProposalForm
-             confirmModal={confirmModal}
-             setConfirmModal={setConfirmModal}
+                confirmModal={confirmModal}
+                setConfirmModal={setConfirmModal}
                 profileUser={profile_user}
               />
             }

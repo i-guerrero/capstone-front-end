@@ -1,7 +1,7 @@
 
 import { Link } from "react-router-dom";
 import "./NavBar.css";
-import Container from "react-bootstrap/Container";
+// import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
@@ -11,10 +11,10 @@ import LogInSignUpBtns from "../Components/LogInSignUpBtns";
 import { auth } from "../../Firebase";
 import { signOut } from "firebase/auth";
 import Image from "react-bootstrap/Image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import NoUserModal from "../Components/NoUserModal";
-import ConfirmationModal from "../Components/ConfirmationModal";
+// import NoUserModal from "../Components/NoUserModal";
+// import ConfirmationModal from "../Components/ConfirmationModal";
 
 // import axios from "axios";
 
@@ -23,6 +23,8 @@ function NavBar({ setFirebaseToken, firebaseToken, profileUser }) {
   const [signUpModal, setSignUpModal] = useState(false);
 
   const navigate = useNavigate();
+
+ 
 
   function handleSignUp() {
     setSignUpModal(true);
@@ -142,6 +144,7 @@ function NavBar({ setFirebaseToken, firebaseToken, profileUser }) {
       </Navbar.Collapse>
     </Navbar>
   );
+
 }
 
 export default NavBar;

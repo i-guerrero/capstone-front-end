@@ -32,8 +32,8 @@ export default function ProposalForm({
 
   function handleSubmit(event) {
     event.preventDefault();
-    createNewProposals(newProposalForm)
-      // .then(navigate("/profile"))
+    createNewProposals({...newProposalForm, non_profit_id:profileUser.id})
+    
       .then(setConfirmModal(true));
     // console.log(newProposalForm, "log newProposalForm in proposalFOrm.js");
     // .then((newProposalFormEnd) => {
