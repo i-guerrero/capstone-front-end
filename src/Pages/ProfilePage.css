@@ -1,4 +1,22 @@
 .profile-pic {
-  width: 300px;
-  height: 300px;
+ padding: 20px;
+  margin: auto;
+  width: 120px;
+  height: 150px;
+  border-radius: 40%;
+}
+.profile {
+  height:min-content;
+  text-align: justify;
+  /* margin: 25px auto auto auto; */
+  background-color: #292e74;
+  color: aliceblue;
+  width:100%;
+  border: 2px solid black;
+  /* padding-bottom: 100px; */
+
+}
+
+.prop-card {
+  text-align: left;
 }
