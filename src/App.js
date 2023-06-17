@@ -37,13 +37,14 @@ function App() {
   useEffect(() => {
     if (firebaseToken) {
       const { uid } = firebaseToken;
-      console.log(uid);
+      // console.log(uid);
       getUserByFirebaseId(uid).then((user) => 
         setProfileUser(user)
       );
     }
   }, [firebaseToken]);
 
+  console.log(profile_user, "app.js console.log")
   return (
     <div>
       <BrowserRouter>
