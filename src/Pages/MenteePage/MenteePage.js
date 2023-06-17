@@ -13,7 +13,6 @@ export default function MenteePage() {
   const [filteredProjects, setFilteredProjects] = useState([]);
   const [confirmModal, setConfirmModal] = useState(false);
 
-
   useEffect(() => {
     getAllProjects().then((projectsList) => {
       setProjects(projectsList);
@@ -29,8 +28,6 @@ export default function MenteePage() {
     setFilteredProjects(filteredData);
   };
 
-
-
   function handleConfirm() {
     setConfirmModal(true);
   }
@@ -41,28 +38,37 @@ export default function MenteePage() {
     {
       name: "Project Impact",
       selector: (row) => row.impact,
-      grow: 1,
+      grow: 2,
       wrap: true,
       center: true,
     },
     {
       name: "Requirements / Technologies",
       selector: (row) => row.technologies,
-      grow: 1,
+      grow: 3,
       wrap: true,
       center: true,
       cell: (row) => <span>{row.technologies}</span>,
     },
     {
-      name: "number of developers",
+      name: "Team Size",
       selector: (row) => row.num_developers,
       grow: 1,
       // wrap: true,
       center: true,
     },
     {
-      name: "date_to_complete",
+      name: "Deadline",
       selector: (row) => row.date_to_complete,
+      cell: (row) => {
+        const parsedDate = new Date(row.date_to_complete);
+
+        const formatter = new Intl.DateTimeFormat("en-EN", {
+          dateStyle: "medium",
+        });
+
+        return <span>{formatter.format(parsedDate)}</span>;
+      },
       grow: 1,
       wrap: true,
       center: true,
@@ -70,23 +76,23 @@ export default function MenteePage() {
     {
       name: "Status",
       cell: () => (
-        <>    <button className="join-btn" onClick={handleConfirm}>
-          Join This Project{" "}
-          <span className="fa-solid fa-up-right-from-square  fa-2xs"></span>
-        </button>
-        {confirmModal ? (
-          <ConfirmationModal
-            confirmModal={confirmModal}
-            closeModal={() => {
-              setConfirmModal(false);
-            }}
-          >
-            <div>Modal is open</div>
-          </ConfirmationModal>
-        ) : null}
+        <>
+          {" "}
+          <button className="join-btn" onClick={handleConfirm}>
+            Join This Project{" "}
+            <span className="fa-solid fa-up-right-from-square  fa-2xs"></span>
+          </button>
+          {confirmModal ? (
+            <ConfirmationModal
+              confirmModal={confirmModal}
+              closeModal={() => {
+                setConfirmModal(false);
+              }}
+            >
+              <div>Modal is open</div>
+            </ConfirmationModal>
+          ) : null}
         </>
-    
-        
       ),
       grow: 1,
       center: true,

@@ -2,7 +2,6 @@
   /* margin: auto; */
   width: 80%;
   height: fit-content;
-
 }
 
 .rdt_TableHeadRow {
@@ -14,11 +13,8 @@
   padding-block: 12px;
 }
 
-.sc-ePzlA-D {
-  border: 2px solid #292e74;
-}
-
 .join-btn {
+  width: 80px;
   display: inline-block;
   padding: 10px 10px;
   border-radius: 5px;
