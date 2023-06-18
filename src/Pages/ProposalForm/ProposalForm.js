@@ -32,9 +32,10 @@ export default function ProposalForm({
 
   function handleSubmit(event) {
     event.preventDefault();
-    createNewProposals({...newProposalForm, non_profit_id:profileUser.id})
-    
-      .then(setConfirmModal(true));
+    createNewProposals({
+      ...newProposalForm,
+      non_profit_id: profileUser.id,
+    }).then(setConfirmModal(true));
     // console.log(newProposalForm, "log newProposalForm in proposalFOrm.js");
     // .then((newProposalFormEnd) => {
     //   navigate("/proposal-accepted");
@@ -51,7 +52,6 @@ export default function ProposalForm({
         <div className="form-text">
           {" "}
           <h1>Welcome NonProfits!</h1>
-          <h3>Get Started</h3>
           <h4>Please fill out our 5-minute project proposal form...</h4>
         </div>
       </header>
@@ -100,7 +100,7 @@ export default function ProposalForm({
             />
           </div>
           <input
-            className="submit-button"
+            className="submit-button-proposal-form"
             type="submit"
             value="Get Help Now!"
           />

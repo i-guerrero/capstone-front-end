@@ -1,0 +1,32 @@
+.amount-displayer {
+  text-align: center;
+}
+
+
+@property --num {
+  syntax: "<integer>";
+  initial-value: 0;
+  inherits: false;
+}
+
+.amount {
+  animation: counter 2.25s forwards ease-in-out;
+  font-size: 5rem;
+  font-weight: bold;
+  color: #292e74;
+  counter-reset: num var(--num);
+}
+
+
+@keyframes counter {
+  from {
+    --num: var(--initial-amount)
+  }
+
+  to {
+    --num: var(--target-amount)
+  }
+}
+.amount::after {
+  content: counter(num)
+}

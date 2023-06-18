@@ -28,6 +28,7 @@
 
 .profile-pic {
   width: 50%;
+  max-width: 200px;
 }
 
 .prop-card {
