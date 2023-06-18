@@ -8,7 +8,7 @@ const Auth = ({ setFirebaseToken, closeModal }) => {
 
   const signIn = async () => {
     try {
-      const user = await signInWithEmailAndPassword(auth, email, password);
+      // const user = await signInWithEmailAndPassword(auth, email, password);
       // setFirebaseToken(user)  <== not needed for now
       window.location = "/profile";
     } catch (err) {

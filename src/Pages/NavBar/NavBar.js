@@ -10,7 +10,7 @@ import LogInSignUpBtns from "../Components/LogInSignUpBtns";
 import { auth } from "../../Firebase";
 import { signOut } from "firebase/auth";
 import Image from "react-bootstrap/Image";
-import { useState, useEffect } from "react";
+import { useState } from "react"; // removing useEffect since it was defined but never used to fix ESLint Deploy Errors
 import { useNavigate } from "react-router-dom";
 // import NoUserModal from "../Components/NoUserModal";
 // import ConfirmationModal from "../Components/ConfirmationModal";
@@ -22,8 +22,6 @@ function NavBar({ setFirebaseToken, firebaseToken, profileUser }) {
   const [signUpModal, setSignUpModal] = useState(false);
 
   const navigate = useNavigate();
-
- 
 
   function handleSignUp() {
     setSignUpModal(true);
@@ -143,7 +141,6 @@ function NavBar({ setFirebaseToken, firebaseToken, profileUser }) {
       </Navbar.Collapse>
     </Navbar>
   );
-
 }
 
 export default NavBar;
