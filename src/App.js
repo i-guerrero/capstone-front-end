@@ -19,6 +19,9 @@ import MentorAccepted from "./Pages/MentorAccepted/MentorAccepted";
 import ProfilePage from "./Pages/ProfilePage";
 import ProposalAccepted from "./Pages/ProposalAccepted/ProposalAccepted";
 import { getUserByFirebaseId } from "./API/Users";
+import { ToastContainer } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
 import { getAllUsers } from "./API/Users";
 
 function App() {
@@ -58,6 +61,7 @@ function App() {
     <div>
       <BrowserRouter>
         <NavBar
+          setProfileUser={setProfileUser}
           setFirebaseToken={setFirebaseToken}
           firebaseToken={firebaseToken}
           profileUser={profile_user}
@@ -124,6 +128,8 @@ function App() {
         </Routes>
       </BrowserRouter>
       <Footer />
+
+      <ToastContainer />
     </div>
   );
 }

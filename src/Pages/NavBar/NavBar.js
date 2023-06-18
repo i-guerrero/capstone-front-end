@@ -4,26 +4,25 @@ import "./NavBar.css";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import Dropdown from "react-bootstrap/Dropdown";
 import logo from "./LogoNoSlogan.png";
 import SignUpForm from "../Components/SignUpForm.js";
 import LogInSignUpBtns from "../Components/LogInSignUpBtns";
 import { auth } from "../../Firebase";
 import { signOut } from "firebase/auth";
 import Image from "react-bootstrap/Image";
-import { useState, useEffect } from "react";
+import { useState } from "react"; // removing useEffect since it was defined but never used to fix ESLint Deploy Errors
 import { useNavigate } from "react-router-dom";
 // import NoUserModal from "../Components/NoUserModal";
 // import ConfirmationModal from "../Components/ConfirmationModal";
 
 // import axios from "axios";
 
-function NavBar({ setFirebaseToken, firebaseToken, profileUser }) {
+function NavBar({ setFirebaseToken, firebaseToken, profileUser, setProfileUser }) {
   const [logInModal, setLogInModal] = useState(false);
   const [signUpModal, setSignUpModal] = useState(false);
 
   const navigate = useNavigate();
-
- 
 
   function handleSignUp() {
     setSignUpModal(true);
@@ -114,14 +113,23 @@ function NavBar({ setFirebaseToken, firebaseToken, profileUser }) {
           </div>
           <br />
           {firebaseToken ? (
-            <div>
-              <a href="/profile">
-                <h5>
-                  {profileUser.first_name} {profileUser.last_name}
-                </h5>
-              </a>
-              <button onClick={logOut}>Logout</button>
-            </div>
+            <Dropdown>
+              <Dropdown.Toggle
+                className="py-2 px-4"
+                variant="light"
+                id="profile-dropdown"
+              >
+                User menu
+              </Dropdown.Toggle>
+
+              <Dropdown.Menu>
+                <Dropdown.Item>
+                  <Link to="/profile">Profile</Link>
+                </Dropdown.Item>
+
+                <Dropdown.Item onClick={logOut}>Logout</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
           ) : (
             <div>
               <LogInSignUpBtns
@@ -134,6 +142,7 @@ function NavBar({ setFirebaseToken, firebaseToken, profileUser }) {
                 handleSignUp={handleSignUp}
               />
               <SignUpForm
+                setProfileUser={setProfileUser}
                 open={signUpModal}
                 close={() => setSignUpModal(false)}
               />
@@ -143,7 +152,6 @@ function NavBar({ setFirebaseToken, firebaseToken, profileUser }) {
       </Navbar.Collapse>
     </Navbar>
   );
-
 }
 
 export default NavBar;

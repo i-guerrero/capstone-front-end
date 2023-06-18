@@ -26,10 +26,9 @@
 .upsert-form {
   display: flex;
   flex-direction: column;
-  margin-inline: auto;
   min-width: 160px;
-  width: 30%;
-  /* size: 55; */
+  max-width: 400px;
+  margin-inline: auto;
 }
 
 .form-field {
@@ -56,6 +55,7 @@ textarea {
   border-radius: 4px;
   border: 2px solid #1b263b;
   outline: none;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif
 }
 
 .form-field input:focus,
@@ -67,7 +67,9 @@ textarea {
   background-color: #283a5a1e;
 }
 
-.submit-button {
+
+.submit-button-proposal-form {
+  margin-top: 0.5rem;
   margin: auto;
   width: max-content;
   font-size: 20px;
@@ -80,7 +82,7 @@ textarea {
   transition: 0.25s;
 }
 
-.submit-button:hover {
+.submit-button-proposal-form:hover {
   transform: scale(1.15);
 }
 
