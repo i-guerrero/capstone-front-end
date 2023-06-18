@@ -1,13 +1,51 @@
+import "./OurImpact.css";
 
+function AmountDisplayer({ label, initialAmount, targetAmount, isCurrency }) {
+  return (
+    <div className="amount-displayer">
+      <h4 className="label">{label}</h4>
+      <div
+        style={{
+          "--initial-amount": initialAmount,
+          "--target-amount": targetAmount,
+        }}
+        className="amount"
+      >
+        {isCurrency && "$"}
+      </div>
+    </div>
+  );
+}
 
 export default function OurImpact() {
   return (
     <div className="home">
-      <article>
-        Our volunteers save Nonprofit organizations time and money: Nonprofit
-        dollars saved: $41,327,745 Volunteer hours donated: 212,258 First
-        real-world work experiences: 115.
-      </article>
+      <section className="container pt-5">
+        <header className="text-center mb-5">
+          <h2>Our volunteers save Nonprofit organizations time and money</h2>
+        </header>
+
+        <div className="d-flex flex-column align-items-center gap-4">
+          <AmountDisplayer
+            label="Nonprofit dollars saved:"
+            initialAmount={0}
+            targetAmount={25230}
+            isCurrency
+          />
+
+          <AmountDisplayer
+            label="Volunteer hours donated:"
+            initialAmount={0}
+            targetAmount={373}
+          />
+
+          <AmountDisplayer
+            label="First real-world work experiences:"
+            initialAmount={0}
+            targetAmount={115}
+          />
+        </div>
+      </section>
     </div>
   );
 }

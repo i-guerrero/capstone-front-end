@@ -30,7 +30,26 @@ export default function MentorPage() {
       .catch((error) => console.log(error));
   }
 
+  console.log(proposals);
+
   const columns = [
+    {
+      name: "Image",
+      cell: () => {
+        return (
+          <div>
+            {/* TODO: When backend image_url property were available; harcoded image url should be replaced with it */}
+            <img
+              style={{ width: 132, height: 132 }}
+              src="https://cdn2.vectorstock.com/i/1000x1000/87/01/non-profit-logo-vector-28458701.jpg"
+              alt="Non profit organization"
+            />
+          </div>
+        );
+      },
+      grow: 1,
+      center: true,
+    },
     {
       name: "Nonprofit Organization",
       selector: (row) => row.title,
@@ -54,7 +73,7 @@ export default function MentorPage() {
     {
       name: "Status",
       cell: (row) => (
-        <>
+        <div class="d-flex gap-3">
           <button
             className="join-btn"
             onClick={() => {
@@ -77,18 +96,20 @@ export default function MentorPage() {
           >
             Reject
           </button>
-        </>
+        </div>
       ),
-      grow: 1,
+      grow: 2,
       center: true,
     },
   ];
 
   return (
     <div className="home">
-      <article>
-        See all these Non-Profits Organization which you can collaborate with
-        now!
+      <article class="container mb-5">
+        <h1>
+          See all these Non-Profits Organization which you can collaborate with
+          now!
+        </h1>
       </article>
 
       {proposals.length > 0 ? (
