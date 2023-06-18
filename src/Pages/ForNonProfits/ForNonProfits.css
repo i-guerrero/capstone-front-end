@@ -13,10 +13,10 @@
   justify-content: space-evenly;
 }
 
-#title {
+/* #title {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-size: large;
-}
+} */
 
 .get-started {
   display: inline-block;
@@ -79,10 +79,10 @@
 
 
 /* =0=-=-=-== */
-#title {
+/* #title {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-size: large;
-}
+} */
 
 .home-button {
   display: inline-block;

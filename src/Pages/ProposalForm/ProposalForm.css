@@ -1,17 +1,16 @@
 .proposal-form {
   height: calc(100vh - 92px);
-  
 }
 
 /* background: linear-gradient(90deg, #cdffd8, #94b9ff); */
 
 .form-container {
-    height: calc(100vh - 92px);
+  height: calc(100vh - 92px);
 }
 
 .form-text {
   text-align: center;
-  padding:0%;
+  padding: 0%;
   margin: 0%;
 }
 
@@ -30,6 +29,7 @@
   margin-inline: auto;
   min-width: 160px;
   width: 30%;
+  /* size: 55; */
 }
 
 .form-field {
@@ -43,6 +43,11 @@
   color: #777777;
 }
 
+#asterisk {
+  color: red;
+  font-size: larger;
+}
+
 .form-field input,
 select,
 textarea {
@@ -53,13 +58,14 @@ textarea {
   outline: none;
 }
 
-.form-field input:focus, .text-area:focus{
-    background-color: #fafafc;
+.form-field input:focus,
+.text-area:focus {
+  background-color: #fafafc;
 }
-.form-field input, .text-area{
-    background-color:#283a5a1e; ;
+.form-field input,
+.text-area {
+  background-color: #283a5a1e;
 }
-
 
 .submit-button {
   margin: auto;
@@ -85,9 +91,15 @@ textarea {
 }
 
 .grid-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-  
-  }
-  
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.guide {
+  opacity: 60%;
+  font-size: small;
+  color: #777777;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}

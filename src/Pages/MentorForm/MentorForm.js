@@ -51,10 +51,11 @@ export default function New() {
       </header>
       <div className="grid-container-mentor">
         <div className="form-container grid-item-mentor">
-          <form className="upsert-form" onSubmit={handleSubmit}>
+          <form  onSubmit={handleSubmit}>
             <div className="form-field">
               <label htmlFor="technologies">Project technologies to use:</label>
               <input
+              className="text-area"
                 type="text"
                 id="technologies"
                 value={newProjectForm.technologies}
@@ -97,6 +98,7 @@ export default function New() {
                 onChange={handleInputChange}
               />
             </div>
+            <br/>
             <input className="submit-button" type="submit" />
           </form>
         </div>

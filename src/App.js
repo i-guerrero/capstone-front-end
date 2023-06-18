@@ -19,12 +19,14 @@ import MentorAccepted from "./Pages/MentorAccepted/MentorAccepted";
 import ProfilePage from "./Pages/ProfilePage";
 import ProposalAccepted from "./Pages/ProposalAccepted/ProposalAccepted";
 import { getUserByFirebaseId } from "./API/Users";
+import { getAllUsers } from "./API/Users";
 
 function App() {
   const [firebaseToken, setFirebaseToken] = useState(null);
   const [profile_user, setProfileUser] = useState({});
   const [userModal, setUserModal] = useState(false);
   const [confirmModal, setConfirmModal] = useState(false);
+  const [allUsers, setAllUsers] = useState([]);
 
   useEffect(() => {
     const auth = getAuth();
@@ -38,13 +40,20 @@ function App() {
     if (firebaseToken) {
       const { uid } = firebaseToken;
       // console.log(uid);
-      getUserByFirebaseId(uid).then((user) => 
-        setProfileUser(user)
-      );
+      getUserByFirebaseId(uid).then((user) => setProfileUser(user));
     }
   }, [firebaseToken]);
 
-  console.log(profile_user, "app.js console.log")
+  useEffect(() => {
+    getAllUsers().then((users) => {
+      setAllUsers(users);
+      users
+        ? console.log(users, "users after fetch in App.js")
+        : console.log("no users");
+    });
+  }, []);
+
+  console.log(profile_user, "app.js console.log");
   return (
     <div>
       <BrowserRouter>
@@ -71,6 +80,7 @@ function App() {
             path="/proposals-new"
             element={
               <ProposalForm
+                allUsers={allUsers}
                 confirmModal={confirmModal}
                 setConfirmModal={setConfirmModal}
                 profileUser={profile_user}

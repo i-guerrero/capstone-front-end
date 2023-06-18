@@ -89,9 +89,8 @@ textarea {
   /* height:fit-content; */
 }
 
-.grid-item-mentor img {
-  height: 80%;
-  width: 80%;
+.grid-item-mentor{
+  width: 100%;
   /* text-align: center; */
   /* Styling for grid items */
 }

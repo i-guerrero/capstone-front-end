@@ -25,8 +25,8 @@ export default function Home() {
       <div className="buttons-container">
         <div
           onClick={() => {
-            navigate("/mentor-accepted");
-            console.log("Joined");
+            navigate("/mentors-new");
+            // console.log("Joined");
           }}
           className="home-button"
         >
@@ -38,8 +38,7 @@ export default function Home() {
         </div>
         <div
           onClick={() => {
-            navigate("/mentor-accepted");
-            console.log("Joined");
+            navigate("/projects");
           }}
           className="home-button"
         >
@@ -52,7 +51,6 @@ export default function Home() {
         <div
           onClick={() => {
             navigate("/proposals-new");
-            console.log("Joined nonprofits");
           }}
           className="home-button"
         >
