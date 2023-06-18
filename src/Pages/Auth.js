@@ -46,6 +46,7 @@ const Auth = ({ setFirebaseToken, closeModal }) => {
           id="email"
           placeholder="Enter Email"
           onChange={(e) => setEmail(e.target.value)}
+          value={email}
         />{" "}
         <br /> <br />
         <label htmlFor="pw">Password</label>
@@ -54,6 +55,7 @@ const Auth = ({ setFirebaseToken, closeModal }) => {
           placeholder="Enter Password"
           type="password"
           onChange={(e) => setPassword(e.target.value)}
+          value={password}
         />
         <br /> <br />
         <button className="btn-log-in" onClick={signIn}>
