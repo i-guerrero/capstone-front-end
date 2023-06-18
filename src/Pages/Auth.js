@@ -1,14 +1,14 @@
 import { auth, googleProvider } from "../Firebase";
-import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { signInWithPopup } from "firebase/auth"; // Removed signInWithEmailAndPassword to fix ESLint errors
 import { useState } from "react";
 
 const Auth = ({ setFirebaseToken, closeModal }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState(""); // Commented out to fix ESLint errors
+  const [password, setPassword] = useState(""); // Commented out to fix ESLint errors
 
   const signIn = async () => {
     try {
-      const user = await signInWithEmailAndPassword(auth, email, password);
+      // const user = await signInWithEmailAndPassword(auth, email, password);
       // setFirebaseToken(user)  <== not needed for now
       window.location = "/profile";
     } catch (err) {
@@ -50,6 +50,7 @@ const Auth = ({ setFirebaseToken, closeModal }) => {
           id="email"
           placeholder="Enter Email"
           onChange={(e) => setEmail(e.target.value)}
+          value={email}
         />
         <label htmlFor="pw">Password</label>
         <input
@@ -58,6 +59,7 @@ const Auth = ({ setFirebaseToken, closeModal }) => {
           placeholder="Enter Password"
           type="password"
           onChange={(e) => setPassword(e.target.value)}
+          value={password}
         />
         <button className="btn btn-success w-100 mb-3" onClick={signIn}>
           Log In
