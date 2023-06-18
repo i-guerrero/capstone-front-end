@@ -3,8 +3,8 @@ import { signInWithPopup } from "firebase/auth"; // Removed signInWithEmailAndPa
 import { useState } from "react";
 
 const Auth = ({ setFirebaseToken, closeModal }) => {
-  // const [email, setEmail] = useState(""); // Commented out to fix ESLint errors
-  // const [password, setPassword] = useState(""); // Commented out to fix ESLint errors
+  const [email, setEmail] = useState(""); // Commented out to fix ESLint errors
+  const [password, setPassword] = useState(""); // Commented out to fix ESLint errors
 
   const signIn = async () => {
     try {
