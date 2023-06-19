@@ -26,8 +26,8 @@ import "react-toastify/dist/ReactToastify.css";
 function App() {
   const [firebaseToken, setFirebaseToken] = useState(null);
   const [profile_user, setProfileUser] = useState({});
+
   const [userModal, setUserModal] = useState(false);
-  const [confirmModal, setConfirmModal] = useState(false);
 
   useEffect(() => {
     const auth = getAuth();
@@ -73,13 +73,7 @@ function App() {
           />
           <Route
             path="/proposals-new"
-            element={
-              <ProposalForm
-                confirmModal={confirmModal}
-                setConfirmModal={setConfirmModal}
-                profileUser={profile_user}
-              />
-            }
+            element={<ProposalForm profileUser={profile_user} />}
           />
           <Route
             path="/mentors-new"
