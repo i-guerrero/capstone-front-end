@@ -28,6 +28,8 @@ function NavBar({ setFirebaseToken, firebaseToken, profileUser, setProfileUser }
     setSignUpModal(true);
   }
 
+// console.log(profileUser, "profile user in navbar state prop")
+
   //   const [newUser, setNewUser] = useState({
   //     first_name: "",
   //     last_name: "",
@@ -124,7 +126,7 @@ function NavBar({ setFirebaseToken, firebaseToken, profileUser, setProfileUser }
 
               <Dropdown.Menu>
                 <Dropdown.Item>
-                  <Link to="/profile">Profile</Link>
+                 Profile
                 </Dropdown.Item>
 
                 <Dropdown.Item onClick={logOut}>Logout</Dropdown.Item>
@@ -133,13 +135,9 @@ function NavBar({ setFirebaseToken, firebaseToken, profileUser, setProfileUser }
           ) : (
             <div>
               <LogInSignUpBtns
-                firebaseToken={firebaseToken}
-                setFirebaseToken={setFirebaseToken}
-                signUpModal={signUpModal}
-                setSignUpModal={setSignUpModal}
+              setProfileUser={setProfileUser}
                 logInModal={logInModal}
                 setLogInModal={setLogInModal}
-                handleSignUp={handleSignUp}
               />
               <SignUpForm
                 setProfileUser={setProfileUser}

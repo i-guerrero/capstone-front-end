@@ -58,7 +58,7 @@ function App() {
 
   useEffect(() => {
     const auth = getAuth();
-    console.log(auth.currentUser, auth);
+    console.log(auth.currentUser, auth, "auth inside setPersistence/useEffect and auth.currrentUser");
     setPersistence(auth, browserLocalPersistence);
     auth.onAuthStateChanged((user) => {
       setFirebaseToken(user);
@@ -67,6 +67,7 @@ function App() {
 
   useEffect(() => {
     if (firebaseToken) {
+      console.log(firebaseToken, "inside useEffect for getUserByFirebaseID/setProfileUser")
       const { uid } = firebaseToken;
       getUserByFirebaseId(uid).then((user) => {
         setProfileUser(user);

@@ -106,7 +106,7 @@ export default function MentorPage() {
 
   return (
     <div className="home">
-      <article class="container mb-5">
+      <article className="container mb-5">
         <h1>
           See all these Non-Profits Organization which you can collaborate with
           now!

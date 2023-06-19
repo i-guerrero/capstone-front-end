@@ -1,8 +1,19 @@
 import { auth, googleProvider } from "../Firebase";
 import { signInWithPopup, signInWithEmailAndPassword } from "firebase/auth"; // Removed signInWithEmailAndPassword to fix ESLint errors
-import { useState } from "react";
+import { useState, React } from "react";
 
 const Auth = ({ setFirebaseToken, closeModal }) => {
+ 
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+ 
+  const signIn = async () => {
+  try {
+    const user = await signInWithEmailAndPassword(auth, email, password)
+  }
+ }
+  
+
   const submitSignIn = async () => {
     try {
       const user = await signInWithEmailAndPassword(
@@ -13,7 +24,7 @@ const Auth = ({ setFirebaseToken, closeModal }) => {
       if (user) {
         setFirebaseToken(user);
       }
-      window.location = "/profile";
+      // window.location = "/profile";
     } catch (err) {
       console.error(err);
     }
@@ -31,19 +42,6 @@ const Auth = ({ setFirebaseToken, closeModal }) => {
     });
   }
 
-  // const firebaseUser = await createUserWithEmailAndPassword(
-  //   auth,
-  //   newUser.email,
-  //   newUser.user_pw
-  // );
-  // const data = { ...newUser, firebase_uid: firebaseUser.user.uid };
-  // const response = await axios.post(`${API}/users`, data);
-
-  // setProfileUser(response.data);
-
-  // navigate("/profile");
-  // close();
-
   const signInGoogle = async () => {
     try {
       const userGoogle = await signInWithPopup(auth, googleProvider);
@@ -52,14 +50,6 @@ const Auth = ({ setFirebaseToken, closeModal }) => {
       console.error(err);
     }
   };
-
-  // const logOut = async () => {
-  //   try {
-  //     await signOut(auth);
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
-  // };
 
   return (
     <>
@@ -92,9 +82,9 @@ const Auth = ({ setFirebaseToken, closeModal }) => {
         <button type="submit" className="btn btn-success w-100 mb-3">
           Log In
         </button>
-        <button className="btn btn-primary w-100" onClick={signInGoogle}>
+        {/* <button className="btn btn-primary w-100" onClick={signInGoogle}>
           Gmail Log In
-        </button>
+        </button> */}
       </form>
     </>
   );
