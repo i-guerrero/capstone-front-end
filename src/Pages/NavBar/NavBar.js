@@ -133,6 +133,7 @@ function NavBar({ setFirebaseToken, firebaseToken, profileUser, setProfileUser }
           ) : (
             <div>
               <LogInSignUpBtns
+                setProfileUser={setProfileUser}
                 firebaseToken={firebaseToken}
                 setFirebaseToken={setFirebaseToken}
                 signUpModal={signUpModal}

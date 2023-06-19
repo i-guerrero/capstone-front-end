@@ -89,9 +89,7 @@ function App() {
           />
           <Route
             path="/proposals"
-            element={
-              <MentorPage userModal={userModal} setUserModal={setUserModal} />
-            }
+            element={<MentorPage profileUser={profile_user} />}
           />
           <Route path="/mentor-accepted" element={<MentorAccepted />} />
           <Route

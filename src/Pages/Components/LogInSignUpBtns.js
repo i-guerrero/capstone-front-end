@@ -8,6 +8,7 @@ export default function LogInSignUpBtns({
   setLogInModal,
   setFirebaseToken,
   handleSignUp,
+  setProfileUser,
 }) {
   function handleLogIn() {
     setLogInModal(true);
@@ -29,6 +30,7 @@ export default function LogInSignUpBtns({
             <Auth
               closeModal={() => setLogInModal(false)}
               setFirebaseToken={setFirebaseToken}
+              setProfileUser={setProfileUser}
             />
           </LogIn>
         </>

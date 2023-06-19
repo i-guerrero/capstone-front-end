@@ -1,5 +1,5 @@
 import { auth, googleProvider } from "../Firebase";
-import { signInWithPopup } from "firebase/auth"; // Removed signInWithEmailAndPassword to fix ESLint errors
+import { signInWithPopup, signInWithEmailAndPassword } from "firebase/auth"; // Removed signInWithEmailAndPassword to fix ESLint errors
 import { useState } from "react";
 
 const Auth = ({ setFirebaseToken, closeModal }) => {
@@ -8,8 +8,8 @@ const Auth = ({ setFirebaseToken, closeModal }) => {
 
   const signIn = async () => {
     try {
-      // const user = await signInWithEmailAndPassword(auth, email, password);
-      // setFirebaseToken(user)  <== not needed for now
+      const user = await signInWithEmailAndPassword(auth, email, password);
+      setFirebaseToken(user);
       window.location = "/profile";
     } catch (err) {
       console.error(err);
