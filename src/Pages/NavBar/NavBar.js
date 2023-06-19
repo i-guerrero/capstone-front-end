@@ -125,7 +125,7 @@ function NavBar({ setFirebaseToken, firebaseToken, profileUser, setProfileUser }
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
-                <Dropdown.Item>
+                <Dropdown.Item onClick={() => navigate("/profile")}>
                  Profile
                 </Dropdown.Item>
 

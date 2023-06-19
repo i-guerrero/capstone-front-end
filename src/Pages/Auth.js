@@ -1,20 +1,12 @@
 import { auth, googleProvider } from "../Firebase";
 import { signInWithPopup, signInWithEmailAndPassword } from "firebase/auth"; // Removed signInWithEmailAndPassword to fix ESLint errors
-import { useState, React } from "react";
+import { useState } from "react";
 
 const Auth = ({ setFirebaseToken, closeModal }) => {
- 
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
- 
-  const signIn = async () => {
-  try {
-    const user = await signInWithEmailAndPassword(auth, email, password)
-  }
- }
-  
+  const [email, setEmail] = useState(""); // Commented out to fix ESLint errors
+  const [password, setPassword] = useState(""); // Commented out to fix ESLint errors
 
-  const submitSignIn = async () => {
+  const signIn = async () => {
     try {
       const user = await signInWithEmailAndPassword(auth, email, password);
       setFirebaseToken(user); // <== not needed for now
@@ -24,18 +16,6 @@ const Auth = ({ setFirebaseToken, closeModal }) => {
     }
   };
 
-  const [signIn, setSignIn] = useState({
-    email: "",
-    password: "",
-  });
-
-  function handleSignIn(event) {
-    setSignIn({
-      ...signIn,
-      [event?.target?.id]: event?.target?.value,
-    });
-  }
-
   const signInGoogle = async () => {
     try {
       const userGoogle = await signInWithPopup(auth, googleProvider);
@@ -44,6 +24,14 @@ const Auth = ({ setFirebaseToken, closeModal }) => {
       console.error(err);
     }
   };
+
+  // const logOut = async () => {
+  //   try {
+  //     await signOut(auth);
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
+  // };
 
   return (
     <>
@@ -55,31 +43,31 @@ const Auth = ({ setFirebaseToken, closeModal }) => {
         </button>
       </div>
 
-      <form onSubmit={submitSignIn}>
+      <div>
         <label htmlFor="email">Email</label>
         <input
           className="form-control mb-3"
           id="email"
           placeholder="Enter Email"
-          onChange={(e) => handleSignIn(e)}
-          value={signIn.email}
+          onChange={(e) => setEmail(e.target.value)}
+          value={email}
         />
         <label htmlFor="pw">Password</label>
         <input
           className="form-control mb-3"
-          id="password"
+          id="pw"
           placeholder="Enter Password"
           type="password"
-          onChange={(e) => handleSignIn(e)}
-          value={signIn.password}
+          onChange={(e) => setPassword(e.target.value)}
+          value={password}
         />
-        <button type="submit" className="btn btn-success w-100 mb-3">
+        <button className="btn btn-success w-100 mb-3" onClick={signIn}>
           Log In
         </button>
-        {/* <button className="btn btn-primary w-100" onClick={signInGoogle}>
+        <button className="btn btn-primary w-100" onClick={signInGoogle}>
           Gmail Log In
-        </button> */}
-      </form>
+        </button>
+      </div>
     </>
   );
 };
