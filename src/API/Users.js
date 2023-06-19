@@ -13,4 +13,5 @@ export function getAllUsers() {
     .then((response) => response.json())
     .then((AllUsers) => AllUsers);
   return request;
+  
 }

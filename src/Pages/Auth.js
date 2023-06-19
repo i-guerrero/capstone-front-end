@@ -3,38 +3,46 @@ import { signInWithPopup, signInWithEmailAndPassword } from "firebase/auth"; // 
 import { useState } from "react";
 
 const Auth = ({ setFirebaseToken, closeModal }) => {
-  const [email, setEmail] = useState(""); // Commented out to fix ESLint errors
-  const [password, setPassword] = useState(""); // Commented out to fix ESLint errors
-  const [signInUser, setSignInUser] = useState()
-
-  const handleSignIn = async () => {
+  const submitSignIn = async () => {
     try {
-      const user = await signInWithEmailAndPassword(auth, email, password);
+      const user = await signInWithEmailAndPassword(
+        auth,
+        signIn.email,
+        signIn.password
+      );
+      if (user) {
+        setFirebaseToken(user);
+      }
       window.location = "/profile";
-      setFirebaseToken(user);
     } catch (err) {
       console.error(err);
     }
   };
 
-  function handleChange(e) {
+  const [signIn, setSignIn] = useState({
+    email: "",
+    password: "",
+  });
 
+  function handleSignIn(event) {
+    setSignIn({
+      ...signIn,
+      [event?.target?.id]: event?.target?.value,
+    });
   }
 
-    // const firebaseUser = await createUserWithEmailAndPassword(
-    //   auth,
-    //   newUser.email,
-    //   newUser.user_pw
-    // );
-    // const data = { ...newUser, firebase_uid: firebaseUser.user.uid };
-    // const response = await axios.post(`${API}/users`, data);
+  // const firebaseUser = await createUserWithEmailAndPassword(
+  //   auth,
+  //   newUser.email,
+  //   newUser.user_pw
+  // );
+  // const data = { ...newUser, firebase_uid: firebaseUser.user.uid };
+  // const response = await axios.post(`${API}/users`, data);
 
-    // setProfileUser(response.data);
+  // setProfileUser(response.data);
 
-    // navigate("/profile");
-    // close();
-
-
+  // navigate("/profile");
+  // close();
 
   const signInGoogle = async () => {
     try {
@@ -63,23 +71,23 @@ const Auth = ({ setFirebaseToken, closeModal }) => {
         </button>
       </div>
 
-      <form onSubmit={handleSignIn}>
+      <form onSubmit={submitSignIn}>
         <label htmlFor="email">Email</label>
         <input
           className="form-control mb-3"
           id="email"
           placeholder="Enter Email"
-          onChange={(e) => setEmail(e.target.value)}
-          value={email}
+          onChange={(e) => handleSignIn(e)}
+          value={signIn.email}
         />
         <label htmlFor="pw">Password</label>
         <input
           className="form-control mb-3"
-          id="pw"
+          id="password"
           placeholder="Enter Password"
           type="password"
-          onChange={(e) => setPassword(e.target.value)}
-          value={password}
+          onChange={(e) => handleSignIn(e)}
+          value={signIn.password}
         />
         <button type="submit" className="btn btn-success w-100 mb-3">
           Log In

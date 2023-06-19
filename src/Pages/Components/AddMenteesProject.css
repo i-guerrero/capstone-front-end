@@ -1,0 +1,12 @@
+.carousel-indicators {
+    border-radius: 10px;
+    margin: auto;
+    width: fit-content;
+    bottom: -10px;
+    background-color: aqua;
+}
+
+.btn-row {
+    display: flex;
+    gap: 15px;
+}

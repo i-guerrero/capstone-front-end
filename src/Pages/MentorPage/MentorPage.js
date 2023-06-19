@@ -79,6 +79,7 @@ export default function MentorPage() {
             onClick={() => {
               const auth = getAuth();
               const currentUser = auth.currentUser;
+              console.log(currentUser)
               if (currentUser) {
                 axios.post();
                 // make axios.post request to /proposals/id/mentor route and make sure the object you are posting with has the key value pair of "firebaseId" === currentUser.user.firebase_uid

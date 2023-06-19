@@ -20,17 +20,45 @@ import ProfilePage from "./Pages/ProfilePage";
 import ProposalAccepted from "./Pages/ProposalAccepted/ProposalAccepted";
 import { getUserByFirebaseId } from "./API/Users";
 import { ToastContainer } from "react-toastify";
+import { getAllUsers } from "./API/Users";
 
 import "react-toastify/dist/ReactToastify.css";
+
+import AddMentorToProposal from "./Pages/Components/AddMentorToProposal";
+import AddMenteesProject from "./Pages/Components/AddMenteesProject";
 
 function App() {
   const [firebaseToken, setFirebaseToken] = useState(null);
   const [profile_user, setProfileUser] = useState({});
   const [userModal, setUserModal] = useState(false);
   const [confirmModal, setConfirmModal] = useState(false);
+  const [mentors, setMentors] = useState([]);
+  const [mentees, setMentees] = useState([]);
+
+
+  useEffect(() => {
+    getAllUsers().then((mentees) => setMentees(filterUsersByMentee(mentees)));
+    getAllUsers().then((mentors) => setMentors(filterUsersByMentor(mentors)));
+  }, []);
+
+
+  function filterUsersByMentor(AllUsers) {
+    const mentors = AllUsers.filter((users) => {
+      return users.user_type === "Mentor";
+    });
+    return mentors;
+  }
+
+  function filterUsersByMentee(AllUsers) {
+    const mentees = AllUsers.filter((users) => {
+      return users.user_type === "Mentee";
+    });
+    return mentees;
+  }
 
   useEffect(() => {
     const auth = getAuth();
+    console.log(auth.currentUser, auth);
     setPersistence(auth, browserLocalPersistence);
     auth.onAuthStateChanged((user) => {
       setFirebaseToken(user);
@@ -40,9 +68,7 @@ function App() {
   useEffect(() => {
     if (firebaseToken) {
       const { uid } = firebaseToken;
-      console.log(uid, "uid Firebasetoken");
       getUserByFirebaseId(uid).then((user) => {
-        console.log(user, "user in app.js");
         setProfileUser(user);
       });
     } else {
@@ -63,6 +89,14 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/how-it-works" element={<HowItWorks />} />
           <Route path="/our-impact" element={<OurImpact />} />
+          <Route
+            path="/proposals/mentors"
+            element={<AddMentorToProposal mentors={mentors} />}
+          />
+          <Route
+            path="/proposals/mentees"
+            element={<AddMenteesProject mentees={mentees} />}
+          />
           <Route
             path="/for-nonprofits"
             element={
@@ -89,6 +123,7 @@ function App() {
               <MentorForm userModal={userModal} setUserModal={setUserModal} />
             }
           />
+
           <Route
             path="/projects"
             element={

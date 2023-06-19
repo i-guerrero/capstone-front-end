@@ -32,6 +32,8 @@ export function getProposalByUserId( userId ) {
     return request;
 }
 
+// export function addMentorToProposal()
+
 
 // export function getOneproposals(id) {
 //   const request = fetch(`${BASE_URL}/${id}`)

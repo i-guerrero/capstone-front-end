@@ -36,11 +36,8 @@ export default function New() {
     // };
 
     createNewProjects(newProjectForm).then((newProjectFormEnd) => {
-      navigate("/projects");
+      navigate("/proposals/mentees");
     });
-
-    
-
   }
 
   return (
@@ -51,11 +48,11 @@ export default function New() {
       </header>
       <div className="grid-container-mentor">
         <div className="form-container grid-item-mentor">
-          <form  onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit}>
             <div className="form-field">
               <label htmlFor="technologies">Project technologies to use:</label>
               <input
-              className="text-area"
+                className="text-area"
                 type="text"
                 id="technologies"
                 value={newProjectForm.technologies}
@@ -64,15 +61,16 @@ export default function New() {
             </div>
 
             <div className="form-field">
-              <label htmlFor="description">
-                Numbers of developers needed:{" "}
-              </label>
-              <textarea
+              <label htmlFor="num_developers">Numbers of developers needed: </label>
+              <input
+                min="3"
+                step="1"
+                max="7"
                 className="text-area"
                 rows={1}
-                type="text"
-                id="description"
-                value={newProjectForm.description}
+                type="number"
+                id="num_developers"
+                value={newProjectForm.num_developers}
                 onChange={handleInputChange}
               />
             </div>
@@ -80,6 +78,7 @@ export default function New() {
             <div className="form-field">
               <label htmlFor="date_to_complete">Date to complete:</label>
               <input
+
                 className="text-area"
                 type="date"
                 id="date_to_complete"
@@ -89,16 +88,16 @@ export default function New() {
             </div>
             <div className="form-field">
               <label htmlFor="trello">Trello link:</label>
-              <textarea
+              <input
                 className="text-area"
                 rows={1}
-                type="text"
+                type="url"
                 id="trello"
                 value={newProjectForm.trello}
                 onChange={handleInputChange}
               />
             </div>
-            <br/>
+            <br />
             <input className="submit-button" type="submit" />
           </form>
         </div>
