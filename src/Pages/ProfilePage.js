@@ -13,7 +13,7 @@ export default function ProfilePage({ firebaseToken, profileUser }) {
   const [proposals, setProposals] = useState([]);
 
   useEffect(() => {
-    console.log(profileUser);
+    // console.log(profileUser);
     if (profileUser) {
       getProposalByUserId(profileUser.id).then((userProposals) =>
         setProposals(userProposals)
@@ -21,7 +21,6 @@ export default function ProfilePage({ firebaseToken, profileUser }) {
     }
   }, [profileUser]);
 
-  console.log(profileUser);
 
   if (!firebaseToken) return null;
 

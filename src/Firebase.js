@@ -1,3 +1,4 @@
+
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 // import { getAnalytics } from "firebase/analytics";
@@ -12,8 +13,8 @@ const firebaseConfig = {
   projectId: "capstone-c2569",
   storageBucket: "capstone-c2569.appspot.com",
   messagingSenderId: "612252432072",
-  appId: "1:612252432072:web:24d85ef1b96e6b402517fd",
-  measurementId: "G-ZT867929MY"
+  appId: "1:612252432072:web:e4722657dc262a5e2517fd",
+  measurementId: "G-B6GZMGSD8Q"
 };
 
 // Initialize Firebase

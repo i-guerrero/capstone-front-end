@@ -73,7 +73,7 @@ export default function MentorPage() {
     {
       name: "Status",
       cell: (row) => (
-        <div class="d-flex gap-3">
+        <div className="d-flex gap-3">
           <button
             className="join-btn"
             onClick={() => {

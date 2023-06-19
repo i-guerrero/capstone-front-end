@@ -22,14 +22,12 @@ import { getUserByFirebaseId } from "./API/Users";
 import { ToastContainer } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
-import { getAllUsers } from "./API/Users";
 
 function App() {
   const [firebaseToken, setFirebaseToken] = useState(null);
   const [profile_user, setProfileUser] = useState({});
   const [userModal, setUserModal] = useState(false);
   const [confirmModal, setConfirmModal] = useState(false);
-  const [allUsers, setAllUsers] = useState([]);
 
   useEffect(() => {
     const auth = getAuth();
@@ -42,21 +40,16 @@ function App() {
   useEffect(() => {
     if (firebaseToken) {
       const { uid } = firebaseToken;
-      // console.log(uid);
-      getUserByFirebaseId(uid).then((user) => setProfileUser(user));
+      console.log(uid, "uid Firebasetoken");
+      getUserByFirebaseId(uid).then((user) => {
+        console.log(user, "user in app.js");
+        setProfileUser(user);
+      });
+    } else {
+      console.log(firebaseToken, "useEffect Error issue missing firebaseToken");
     }
   }, [firebaseToken]);
 
-  useEffect(() => {
-    getAllUsers().then((users) => {
-      setAllUsers(users);
-      users
-        ? console.log(users, "users after fetch in App.js")
-        : console.log("no users");
-    });
-  }, []);
-
-  console.log(profile_user, "app.js console.log");
   return (
     <div>
       <BrowserRouter>
@@ -84,7 +77,6 @@ function App() {
             path="/proposals-new"
             element={
               <ProposalForm
-                allUsers={allUsers}
                 confirmModal={confirmModal}
                 setConfirmModal={setConfirmModal}
                 profileUser={profile_user}

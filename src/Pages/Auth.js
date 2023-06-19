@@ -1,20 +1,40 @@
 import { auth, googleProvider } from "../Firebase";
-import { signInWithPopup } from "firebase/auth"; // Removed signInWithEmailAndPassword to fix ESLint errors
+import { signInWithPopup, signInWithEmailAndPassword } from "firebase/auth"; // Removed signInWithEmailAndPassword to fix ESLint errors
 import { useState } from "react";
 
 const Auth = ({ setFirebaseToken, closeModal }) => {
   const [email, setEmail] = useState(""); // Commented out to fix ESLint errors
   const [password, setPassword] = useState(""); // Commented out to fix ESLint errors
+  const [signInUser, setSignInUser] = useState()
 
-  const signIn = async () => {
+  const handleSignIn = async () => {
     try {
-      // const user = await signInWithEmailAndPassword(auth, email, password);
-      // setFirebaseToken(user)  <== not needed for now
+      const user = await signInWithEmailAndPassword(auth, email, password);
       window.location = "/profile";
+      setFirebaseToken(user);
     } catch (err) {
       console.error(err);
     }
   };
+
+  function handleChange(e) {
+
+  }
+
+    // const firebaseUser = await createUserWithEmailAndPassword(
+    //   auth,
+    //   newUser.email,
+    //   newUser.user_pw
+    // );
+    // const data = { ...newUser, firebase_uid: firebaseUser.user.uid };
+    // const response = await axios.post(`${API}/users`, data);
+
+    // setProfileUser(response.data);
+
+    // navigate("/profile");
+    // close();
+
+
 
   const signInGoogle = async () => {
     try {
@@ -43,7 +63,7 @@ const Auth = ({ setFirebaseToken, closeModal }) => {
         </button>
       </div>
 
-      <div>
+      <form onSubmit={handleSignIn}>
         <label htmlFor="email">Email</label>
         <input
           className="form-control mb-3"
@@ -61,13 +81,13 @@ const Auth = ({ setFirebaseToken, closeModal }) => {
           onChange={(e) => setPassword(e.target.value)}
           value={password}
         />
-        <button className="btn btn-success w-100 mb-3" onClick={signIn}>
+        <button type="submit" className="btn btn-success w-100 mb-3">
           Log In
         </button>
         <button className="btn btn-primary w-100" onClick={signInGoogle}>
           Gmail Log In
         </button>
-      </div>
+      </form>
     </>
   );
 };
