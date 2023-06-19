@@ -21,8 +21,8 @@
   font-size: 12px;
   text-align: center;
   text-decoration: none;
-  color: white;
-  background-color: #292e74;
+  color: #292e74;
+  background-color: #BBBF95;
   border: none;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   transition: all 0.2s ease-in-out;
@@ -30,8 +30,9 @@
 }
 
 .join-btn:hover {
+  color: white;
   transform: scale(1.15);
-  background-color: #292e74;
+  background-color: rgb(37, 150, 190);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
