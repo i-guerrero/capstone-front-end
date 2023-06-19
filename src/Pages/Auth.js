@@ -16,15 +16,9 @@ const Auth = ({ setFirebaseToken, closeModal }) => {
 
   const submitSignIn = async () => {
     try {
-      const user = await signInWithEmailAndPassword(
-        auth,
-        signIn.email,
-        signIn.password
-      );
-      if (user) {
-        setFirebaseToken(user);
-      }
-      // window.location = "/profile";
+      const user = await signInWithEmailAndPassword(auth, email, password);
+      setFirebaseToken(user); // <== not needed for now
+      window.location = "/profile";
     } catch (err) {
       console.error(err);
     }
