@@ -101,11 +101,8 @@ export default function MenteePage() {
 
   return (
     <div className="home">
-      <article class="container mb-5">
-        <h1>
-          See all these projects which you can collaborate with
-          now!
-        </h1>
+      <article className="container mb-5">
+        <h1>See all these projects which you can collaborate with now!</h1>
       </article>
       <br />
       <div className="data-table-container">
