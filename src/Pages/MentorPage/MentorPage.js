@@ -105,7 +105,7 @@ export default function MentorPage({ profileUser }) {
     {
       name: "Status",
       cell: (row) => (
-        <div class="d-flex gap-3">
+        <div className="d-flex gap-3">
           <button
             className="join-btn"
             onClick={() => {
@@ -136,7 +136,7 @@ export default function MentorPage({ profileUser }) {
 
   return (
     <div className="home">
-      <article class="container mb-5">
+      <article className="container mb-5">
         <h1>
           See all these Non-Profits Organization which you can collaborate with
           now!

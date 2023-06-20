@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import Modal from "react-bootstrap/Modal";
-import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
 
 // const SIGN_UP_STYLES = {
 //   height:"40%",
@@ -21,15 +21,15 @@ import { toast } from "react-toastify";
 
 // };
 
-const OVERLAY_STYLES = {
-  position: "fixed",
-  top: 0,
-  left: 0,
-  right: 0,
-  bottom: 0,
-  backgroundColor: "rgba(0, 0, 0, .7)",
-  zIndex: 1000,
-};
+// const OVERLAY_STYLES = {
+//   position: "fixed",
+//   top: 0,
+//   left: 0,
+//   right: 0,
+//   bottom: 0,
+//   backgroundColor: "rgba(0, 0, 0, .7)",
+//   zIndex: 1000,
+// };
 
 const API = process.env.REACT_APP_BASE_URL;
 
