@@ -40,6 +40,7 @@ export default function MentorPage({ profileUser }) {
     });
   }, []);
 
+  console.log(proposals);
   function handleReject(e) {
     // console.log(e.target.dataset, "log reject e.target.dataset");
     axios

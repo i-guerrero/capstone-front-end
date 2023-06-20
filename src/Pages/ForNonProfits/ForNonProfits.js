@@ -1,23 +1,39 @@
 import "./ForNonProfits.css";
 // import teamworkImg from "./brooke-cagle--uHVRvDr7pg-unsplash.jpeg";
 // import pairLogo from "./undraw_pair_programming_re_or4x.svg";
-import NoUserModal from "../Components/NoUserModal";
+import Modal from "react-bootstrap/Modal";
 import { useNavigate } from "react-router-dom";
 import pairLogo from "./undraw_pair_programming_re_or4x.svg";
+import { useState } from "react";
 
-export default function ForNonProfits({
-  profileUser,
-  setUserModal,
-  userModal,
-}) {
+function ConfirmAuthModal({ open, handleClose }) {
+  return (
+    <Modal show={open} onHide={handleClose} centered>
+      <Modal.Body className="p-4">
+        <div className="w-100 d-flex flex-column justify-content-between align-items-center">
+          <h2 className="text-center mb-3">You must be authenticated</h2>
+
+          <button className="btn btn-success w-50" onClick={handleClose}>
+            Go to sign in
+          </button>
+        </div>
+      </Modal.Body>
+    </Modal>
+  );
+}
+
+export default function ForNonProfits({ profileUser }) {
+  const [authModal, setAuthModal] = useState(false);
   const navigate = useNavigate();
+  const isAuth = Boolean(profileUser?.id);
 
-  function handleGetStarted() {
-    if (!profileUser.user_type) {
-      setUserModal(true);
-    } else if (profileUser.user_type === "Nonprofit") {
-      navigate("/proposals-new");
+  function handleNavigateToAuthPage(route) {
+    if (isAuth) {
+      navigate(route);
+      return;
     }
+
+    setAuthModal(true);
   }
 
   return (
@@ -42,14 +58,18 @@ export default function ForNonProfits({
           </div>
         </div>
         <div className="contact-container">
-          <button onClick={handleGetStarted} className="get-started">
+          <button
+            onClick={() => handleNavigateToAuthPage("/proposals-new")}
+            className="get-started"
+          >
             Get Started
           </button>
-          <NoUserModal
-            userModal={userModal}
-            closeModal={() => setUserModal(false)}
-          />
         </div>
+
+        <ConfirmAuthModal
+          open={authModal}
+          handleClose={() => setAuthModal(false)}
+        />
       </div>
     </div>
   );

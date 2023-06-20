@@ -2,10 +2,39 @@ import "./Home.css";
 // import { useState } from "react";
 // import welcomeF from "./welcomeF.png";
 import devteam from "./undraw_engineering_team_a7n2 (1).svg";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Modal from "react-bootstrap/modal";
 
-export default function Home() {
+function ConfirmAuthModal({ open, handleClose }) {
+  return (
+    <Modal show={open} onHide={handleClose} centered>
+      <Modal.Body className="p-4">
+        <div className="w-100 d-flex flex-column justify-content-between align-items-center">
+          <h2 className="text-center mb-3">You must be authenticated</h2>
+
+          <button className="btn btn-success w-50" onClick={handleClose}>
+            Go to sign in
+          </button>
+        </div>
+      </Modal.Body>
+    </Modal>
+  );
+}
+
+export default function Home({ profileUser }) {
+  const [authModal, setAuthModal] = useState(false);
   const navigate = useNavigate();
+  const isAuth = Boolean(profileUser?.id);
+
+  function handleNavigateToAuthPage(route) {
+    if (isAuth) {
+      navigate(route);
+      return;
+    }
+
+    setAuthModal(true);
+  }
 
   return (
     <div className="home container d-flex flex-column justify-content-center align-items-center">
@@ -24,10 +53,7 @@ export default function Home() {
       </div>
       <div className="buttons-container">
         <div
-          onClick={() => {
-            navigate("/mentor-accepted");
-            console.log("Joined");
-          }}
+          onClick={() => handleNavigateToAuthPage("/mentor-accepted")}
           className="home-button"
         >
           Join Mentors{" "}
@@ -37,10 +63,7 @@ export default function Home() {
           ></span> */}
         </div>
         <div
-          onClick={() => {
-            navigate("/mentor-accepted");
-            console.log("Joined");
-          }}
+          onClick={() => handleNavigateToAuthPage("/projects")}
           className="home-button"
         >
           Join Mentees{" "}
@@ -50,10 +73,7 @@ export default function Home() {
           ></span> */}
         </div>
         <div
-          onClick={() => {
-            navigate("/proposals-new");
-            console.log("Joined nonprofits");
-          }}
+          onClick={() => handleNavigateToAuthPage("/proposals-new")}
           className="home-button"
         >
           Join Non-profits{" "}
@@ -63,6 +83,11 @@ export default function Home() {
           ></span> */}
         </div>
       </div>
+
+      <ConfirmAuthModal
+        open={authModal}
+        handleClose={() => setAuthModal(false)}
+      />
     </div>
   );
 }

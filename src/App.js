@@ -58,18 +58,12 @@ function App() {
           profileUser={profile_user}
         />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home profileUser={profile_user} />} />
           <Route path="/how-it-works" element={<HowItWorks />} />
           <Route path="/our-impact" element={<OurImpact />} />
           <Route
             path="/for-nonprofits"
-            element={
-              <ForNonProfits
-                userModal={userModal}
-                setUserModal={setUserModal}
-                profileUser={profile_user}
-              />
-            }
+            element={<ForNonProfits profileUser={profile_user} />}
           />
           <Route
             path="/proposals-new"
@@ -78,7 +72,11 @@ function App() {
           <Route
             path="/mentors-new"
             element={
-              <MentorForm profileUser={profile_user} userModal={userModal} setUserModal={setUserModal} />
+              <MentorForm
+                profileUser={profile_user}
+                userModal={userModal}
+                setUserModal={setUserModal}
+              />
             }
           />
           <Route
