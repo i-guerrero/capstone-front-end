@@ -1,6 +1,5 @@
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
-
 export function getAllProposals() {
   const request = fetch(`${BASE_URL}/proposals`)
     .then((response) => response.json())
@@ -9,7 +8,7 @@ export function getAllProposals() {
   return request;
 }
 
-//idea; every time mentors click join appears the project in detail in the next page 
+//idea; every time mentors click join appears the project in detail in the next page
 
 export function createNewProposals(proposals) {
   const request = fetch(`${BASE_URL}/proposals`, {
@@ -23,15 +22,28 @@ export function createNewProposals(proposals) {
   return request;
 }
 
-
-
-export function getProposalByUserId( userId ) {
+export function getProposalByUserId(userId) {
   const request = fetch(`${BASE_URL}/users/${userId}/proposals`)
     .then((response) => response.json())
     .then((proposals) => proposals);
-    return request;
+  return request;
 }
 
+export function approveProposal(userId, firebaseId) {
+  const payload = {
+    firebaseId,
+  };
+
+  const request = fetch(`${BASE_URL}/proposals/${userId}/mentor`, {
+    method: "PUT",
+    body: JSON.stringify(payload),
+    headers: { "Content-Type": "application/json" },
+  })
+    .then((response) => response.json())
+    .then((approvedProposal) => approvedProposal);
+
+  return request;
+}
 
 // export function getOneproposals(id) {
 //   const request = fetch(`${BASE_URL}/${id}`)
@@ -40,8 +52,6 @@ export function getProposalByUserId( userId ) {
 //     .catch((err) => console.log("Error getting one proposals"));
 //   return request;
 // }
-
-
 
 // export function updateproposals(id, proposals) {
 //   const request = fetch(`${BASE_URL}/${id}`, {

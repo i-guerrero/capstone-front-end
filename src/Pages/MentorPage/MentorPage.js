@@ -1,6 +1,7 @@
 import DataTable from "react-data-table-component";
 import { useEffect, useState } from "react";
-import { getAllProposals } from "../../API/Proposal";
+import Modal from "react-bootstrap/Modal";
+import { getAllProposals, approveProposal } from "../../API/Proposal";
 import { useNavigate } from "react-router-dom";
 import { getAuth } from "firebase/auth";
 import "./MentorPage.css";
@@ -9,10 +10,29 @@ import "./MentorPage.css";
 import axios from "axios";
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
-export default function MentorPage() {
+function ConfirmModal({ open, handleClose }) {
+  return (
+    <Modal show={open} onHide={handleClose} centered>
+      <Modal.Body className="p-4">
+        <div className="w-100 d-flex flex-column justify-content-between align-items-center">
+          <h2 className="text-center mb-3">
+            Proposal was approved successfully!
+          </h2>
+
+          <button className="btn btn-success w-50" onClick={handleClose}>
+            Go mentors form
+          </button>
+        </div>
+      </Modal.Body>
+    </Modal>
+  );
+}
+
+export default function MentorPage({ profileUser }) {
   // const { id } = useParams();
   const navigate = useNavigate();
   const [proposals, setProposals] = useState([]);
+  const [confirmModal, setConfirmModal] = useState(false);
 
   useEffect(() => {
     getAllProposals().then((proposalsList) => {
@@ -30,7 +50,19 @@ export default function MentorPage() {
       .catch((error) => console.log(error));
   }
 
-  console.log(proposals);
+  async function handleApprove(userId, firebaseId) {
+    try {
+      const response = await approveProposal(userId, firebaseId);
+      console.log(response);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  function handleCloseModal() {
+    navigate("/mentors-new");
+    setConfirmModal(false);
+  }
 
   const columns = [
     {
@@ -80,9 +112,8 @@ export default function MentorPage() {
               const auth = getAuth();
               const currentUser = auth.currentUser;
               if (currentUser) {
-                axios.post();
-                // make axios.post request to /proposals/id/mentor route and make sure the object you are posting with has the key value pair of "firebaseId" === currentUser.user.firebase_uid
-                // console.log(currentUser);
+                handleApprove(profileUser.id, currentUser.uid);
+                setConfirmModal(true);
               }
             }}
           >
@@ -119,6 +150,8 @@ export default function MentorPage() {
       ) : (
         <div> We are Loading...</div>
       )}
+
+      <ConfirmModal open={confirmModal} handleClose={handleCloseModal} />
     </div>
   );
 }

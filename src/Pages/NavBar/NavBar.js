@@ -115,8 +115,9 @@ function NavBar({ setFirebaseToken, firebaseToken, profileUser, setProfileUser }
           {firebaseToken ? (
             <Dropdown>
               <Dropdown.Toggle
+                style={{ background: "#BBBF95", color: "#292e74" }}
                 className="py-2 px-4"
-                variant="light"
+                
                 id="profile-dropdown"
               >
                 User menu
@@ -133,6 +134,7 @@ function NavBar({ setFirebaseToken, firebaseToken, profileUser, setProfileUser }
           ) : (
             <div>
               <LogInSignUpBtns
+                setProfileUser={setProfileUser}
                 firebaseToken={firebaseToken}
                 setFirebaseToken={setFirebaseToken}
                 signUpModal={signUpModal}

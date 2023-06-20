@@ -3,15 +3,13 @@ import "./MentorAccepted.css";
 
 export default function MentorAccepted() {
   return (
-    <div className="home container">
-      <article>
-        Thank you for joining our community and impacting this proposal with
-        your experience! Please contact [name of the organization] through one
-        of their channels [put channels here]...... After that please fill out
-        the form below to publish the technical project and join new developers
-        in this adventure.
+    <div className="home">
+      <article class="container mb-5">
+        <h1>
+          See all these Non-Profits Organization which you can collaborate with
+          now!
+        </h1>
       </article>
-
       <div className="d-flex justify-content center">
         <Link to="/mentors-new" className="home-button mx-auto">
           Project Form
@@ -20,3 +18,6 @@ export default function MentorAccepted() {
     </div>
   );
 }
+
+
+
