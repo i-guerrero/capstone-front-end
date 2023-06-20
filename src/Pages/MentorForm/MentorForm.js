@@ -6,11 +6,31 @@ import survey from "./survey.svg";
 import { useState } from "react";
 import { createNewProjects } from "../../API/Project";
 import { useNavigate } from "react-router-dom";
+import Modal from "react-bootstrap/Modal";
 
-export default function New() {
+function ConfirmModal({ open, handleClose }) {
+  return (
+    <Modal show={open} onHide={handleClose} centered>
+      <Modal.Body className="p-4">
+        <div className="w-100 d-flex flex-column justify-content-between align-items-center">
+          <h2 className="text-center mb-3">
+            Project was created successfully!
+          </h2>
+
+          <button className="btn btn-success w-50" onClick={handleClose}>
+            Go projects list
+          </button>
+        </div>
+      </Modal.Body>
+    </Modal>
+  );
+}
+
+export default function New({ profileUser }) {
   const navigate = useNavigate();
+  const [confirmModal, setConfirmModal] = useState(false);
   const [newProjectForm, setNewProjectForm] = useState({
-    id: "",
+    id: profileUser.id,
     technologies: "",
     num_developers: "",
     date_to_complete: "",
@@ -36,11 +56,13 @@ export default function New() {
     // };
 
     createNewProjects(newProjectForm).then((newProjectFormEnd) => {
-      navigate("/projects");
+      setConfirmModal(true);
     });
+  }
 
-    
-
+  function handleCloseModal() {
+    setConfirmModal(false);
+    navigate("/projects");
   }
 
   return (
@@ -62,16 +84,31 @@ export default function New() {
               />
             </div>
 
+
             <div className="form-field">
               <label htmlFor="description">
-                Numbers of developers needed:{" "}
+                Description
               </label>
               <textarea
+
                 className="text-area"
-                rows={1}
+                rows={3}
                 type="text"
                 id="description"
                 value={newProjectForm.description}
+                onChange={handleInputChange}
+              />
+            </div>
+
+            <div className="form-field">
+              <label htmlFor="num_developers">
+                Numbers of developers needed:{" "}
+              </label>
+              <input
+                className="text-area"
+                type="number"
+                id="num_developers"
+                value={newProjectForm.num_developers}
                 onChange={handleInputChange}
               />
             </div>
@@ -104,6 +141,8 @@ export default function New() {
           <img src={survey} alt="surveyIcon" />
         </div>
       </div>
+
+      <ConfirmModal open={confirmModal} handleClose={handleCloseModal} />
     </div>
   );
 }

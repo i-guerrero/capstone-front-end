@@ -78,7 +78,7 @@ function App() {
           <Route
             path="/mentors-new"
             element={
-              <MentorForm userModal={userModal} setUserModal={setUserModal} />
+              <MentorForm profileUser={profile_user} userModal={userModal} setUserModal={setUserModal} />
             }
           />
           <Route
