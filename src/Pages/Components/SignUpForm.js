@@ -159,7 +159,7 @@ export default function SignUp({ open, close, setProfileUser }) {
           <div className="my-3">
             <h5>Choose your role</h5>
 
-            <div class="d-flex justify-content-between">
+            <div className="d-flex justify-content-between">
               <div className="d-flex gap-2">
                 <input
                   type="radio"
