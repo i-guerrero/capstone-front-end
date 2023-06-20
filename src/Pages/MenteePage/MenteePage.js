@@ -13,7 +13,7 @@ function SuccessJoinModal({ open, handleClose }) {
       <Modal.Body className="p-4">
         <div className="w-100 d-flex flex-column justify-content-between align-items-center">
           <h2 className="text-center mb-3">
-            You have been joined to this project!
+            You have successfully joined this project!
           </h2>
 
           <button className="btn btn-success w-75" onClick={handleClose}>

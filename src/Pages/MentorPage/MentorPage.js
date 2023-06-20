@@ -20,7 +20,7 @@ function ConfirmModal({ open, handleClose }) {
           </h2>
 
           <button className="btn btn-success w-50" onClick={handleClose}>
-            Go mentors form
+            Complete the project form
           </button>
         </div>
       </Modal.Body>
