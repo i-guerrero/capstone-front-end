@@ -34,7 +34,7 @@ export default function OurImpact() {
           />
 
           <AmountDisplayer
-            label="Volunteer developer hours donated:"
+            label="Developer hours volunteered:"
             initialAmount={0}
             targetAmount={373}
           />
