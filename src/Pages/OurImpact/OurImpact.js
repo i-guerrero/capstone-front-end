@@ -27,20 +27,20 @@ export default function OurImpact() {
 
         <div className="d-flex flex-column align-items-center gap-4">
           <AmountDisplayer
-            label="Nonprofit dollars saved:"
+            label="Nonprofits have saved:"
             initialAmount={0}
             targetAmount={25230}
             isCurrency
           />
 
           <AmountDisplayer
-            label="Volunteer hours donated:"
+            label="Volunteer developer hours donated:"
             initialAmount={0}
             targetAmount={373}
           />
 
           <AmountDisplayer
-            label="First real-world work experiences:"
+            label="Developer real-world experiences:"
             initialAmount={0}
             targetAmount={115}
           />
