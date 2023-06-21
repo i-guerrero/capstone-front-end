@@ -4,7 +4,7 @@ import "./Home.css";
 import devteam from "./undraw_engineering_team_a7n2 (1).svg";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Modal from "react-bootstrap/modal";
+import Modal from "react-bootstrap/Modal";
 
 function ConfirmAuthModal({ open, handleClose }) {
   return (
