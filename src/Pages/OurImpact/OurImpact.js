@@ -40,7 +40,7 @@ export default function OurImpact() {
           />
 
           <AmountDisplayer
-            label="Developer real-world experiences:"
+            label="Projects Completed:"
             initialAmount={0}
             targetAmount={115}
           />
